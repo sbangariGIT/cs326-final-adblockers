@@ -21,7 +21,7 @@ Groups can make the group private - invite only, public - open, public - accept 
 
 Each user would have a profile page which contains their groups and a personal resource folder. 
 
-Current available study group resources:
+Similar available products:
 
 # Important Components
 Filter feature to locate groups that match the needs.  
