@@ -14,9 +14,11 @@ groups. Group can list their meeting time, date and location. Students can also 
 This hub also acts like a resource center where we can store resources for a class.
 Each group will have a chat room to discuss.
 
+Groups can make the group private - invite only, public - open, public - accept by admin. 
+
+Each user would have a profile page which contains their groups and a personal resource folder. 
+
 Current available study group resources:
-
-
 
 # Important Components
 
