@@ -21,7 +21,7 @@ Groups can make the group private - invite only, public - accept by admin.
 
 Each user would have a profile page which contains their groups and a personal resource folder.
 
-Current available study group resources:
+Similar available products:
 
 # Important Components
 Real time dashboard to show a user the existing study groups he is enrolled in.
