@@ -1,5 +1,5 @@
-Team name : adblockers
-Application name : Study Mate
+Team name : <b>adblockers</b>  
+Application name : <b>Study Mate </b>
 
 # Team Overview
 Name --- GitHub id  
