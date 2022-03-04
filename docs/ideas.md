@@ -25,6 +25,9 @@ Similar available products:
 
 # Important Components
 Real time dashboard to show a user the existing study groups he is enrolled in.
+
 Find study groups which can be filetered by the course number.  
+
 Sychronized resource profile for each group with attributes such as meeting time & dates.
+
 Group chat feature to enable discussion among the group.
