@@ -2,9 +2,12 @@ Team name : <b>adblockers</b>
 Application name : <b>Study Mate </b>
 
 # Team Overview
-Name --- GitHub id  
-Anurag Gumidelli --- Anurag-Gumidelli  
-Adithya Kethu --- akethu  
+| Name               | GitHub id        |
+|--------------------|------------------|
+| Anurag Gumidelli   | Anurag-Gumidelli |
+| Sai Rohan Bangari  | sbangariGIT      |
+| Adithya Kethu      | akethu           |
+|Lauretta Imuze      | \<enter git id\>         |
 
 
 # Innovative Idea
