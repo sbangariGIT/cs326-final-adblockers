@@ -2,10 +2,9 @@ Team name : adblockers
 Application name : Study Mate
 
 # Team Overview
-
-Name: Anurag Gumidelli, GitHub ID: Anurag-Gumidelli
-
-Name: Adithya Kethu, GitHub ID: akethu
+Name --- GitHub id
+Anurag Gumidelli --- Anurag-Gumidelli
+Adithya Kethu --- akethu
 
 
 # Innovative Idea
