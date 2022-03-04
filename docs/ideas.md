@@ -21,4 +21,7 @@ Each user would have a profile page which contains their groups and a personal r
 Current available study group resources:
 
 # Important Components
+Filter feature to locate groups that match the needs.
+Sychronized resource profile for each group.
+Group chat feature to enable discussion among the group.
 
