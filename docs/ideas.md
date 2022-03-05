@@ -7,7 +7,7 @@ Application name : <b>Study Mate </b>
 | Anurag Gumidelli   | Anurag-Gumidelli |
 | Sai Rohan Bangari  | sbangariGIT      |
 | Adithya Kethu      | akethu           |
-|Lauretta Imuze      | \<enter git id\>         |
+| Lauretta Imuze     | limuze0          |
 
 
 # Innovative Idea
