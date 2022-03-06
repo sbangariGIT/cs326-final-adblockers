@@ -21,7 +21,13 @@ Groups can make the group private - invite only, public - accept by admin.
 
 Each user would have a profile page which contains their groups and a personal resource folder.
 
-Similar available products:
+# Similarly Available Products:
+
+~ OpenStudy - is a social learning network where students ask questions, give help, and connect with other students studying the same things.
+
+~ Meetup - is a platform for finding and building local communities. People use Meetup to meet new people, learn new things and find support.
+
+~ Eventbrite - is a social platform used for hosting and registering for events and is one of the most popular Meetup alternatives. You can create an event, set up seating and ticket pricing, and then put the word out using social media to draw a crowd.
 
 # Important Components
 Real time dashboard to show a user the existing study groups he is enrolled in.
