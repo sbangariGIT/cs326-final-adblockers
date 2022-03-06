@@ -32,8 +32,7 @@ This idea relates to other products such as OpenStudy, Meetup & Eventbrite becau
 ~ Eventbrite - is a social platform used for hosting and registering for events and is one of the most popular Meetup alternatives. You can create an event, set up seating and ticket pricing, and then put the word out using social media to draw a crowd.
 
 # Important Components
-- Real time dashboard to show a user the existing study groups he is enrolled in.
+- Real time dashboard to show a user the existing study groups they are enrolled in.
 - Find study groups which can be filtered by the course number.  
-- Sychronized resource profile for each group with attributes such as meeting time & dates.
+- Group profile for each group with attributes such as meeting time & dates.
 - Group chat feature to enable discussion among the group.
-- Organize meeting time for the group using scheduling.
