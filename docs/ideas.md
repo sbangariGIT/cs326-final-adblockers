@@ -21,6 +21,8 @@ Groups can make the group private - invite only, public - accept by admin.
 
 Each user would have a profile page which contains their groups and a personal resource folder.
 
+This idea relates to other products such as OpenStudy, Meetup & Eventbrite because it organizes individuals/group looking to work together towards a common goal and makes the process more streamlined/efficient to do so. It saves users the hassle of figuring out to organize/build groups and lets them focus on the direct work they're aiming to accomplish. See similar product descriptions below.
+
 # Similarly Available Products:
 
 ~ OpenStudy - is a social learning network where students ask questions, give help, and connect with other students studying the same things.
