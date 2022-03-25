@@ -1,8 +1,5 @@
-/*
-    DEMO STYLE
-*/
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -65,6 +62,11 @@ a:focus {
     background: #12375c8c;
     color: #fff;
     transition: all 0.3s;
+}
+
+.active {
+    background-color: #ffffff8c;
+    color: black;
 }
 
 #sidebar.active {
@@ -172,4 +174,40 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+}
+
+/* ---------------------------------------------------
+    TABLE STYLE
+----------------------------------------------------- */
+
+#profile_image {
+    width: 10vw; 
+    display: flex;
+}
+
+#profile_align {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#profile_info {
+    display: flex; 
+    flex-direction: row; 
+    align-self: flex-start;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.grid_item {
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.082);
+    background-color: beige;
+}
+
+.noti {
+    display: flex;
+    justify-content: space-between;
 }
