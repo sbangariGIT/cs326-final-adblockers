@@ -227,14 +227,14 @@ a.article:hover {
 .search_button {
     border-radius: 10px;
     width: 100px;
-    padding: 3px;
+    padding: 5px 12px 5px 12px;
     background-color: #b4bfe7;
 }
 
 .search_button:hover {
     border-radius: 10px;
     width: 100px;
-    padding: 3px;
+    padding: 4px 11px 4px 11px;
     background-color: #3c5fdf;
     color: #fff;
 }
