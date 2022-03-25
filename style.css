@@ -204,7 +204,6 @@ a.article:hover {
 .grid_item {
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.082);
-    background-color: beige;
 }
 
 .noti {
@@ -224,14 +223,24 @@ a.article:hover {
 .search_button {
     border-radius: 10px;
     width: 100px;
-    padding: 5px;
+    padding: 3px;
     background-color: #b4bfe7;
 }
 
 .search_button:hover {
     border-radius: 10px;
     width: 100px;
-    padding: 5px;
+    padding: 3px;
     background-color: #3c5fdf;
     color: #fff;
+}
+
+
+/* ---------------------------------------------------
+    GROUP PAGE STYLE
+----------------------------------------------------- */
+
+#group_bio {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
