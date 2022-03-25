@@ -28,7 +28,7 @@
                 <a href="index.html">My Profile</a>
             </li>
             <li class="active">
-                <a href="group.html">Join a group</a>
+                <a href="group_search.html">Join a group</a>
             </li>
             <li>
                 <a href="#">Create a group</a>
@@ -56,71 +56,46 @@
             </div>
         </nav>
 
-        <h2>My Profile</h2>
-        <div class="line"></div>
         <div class="text-left">
+            <form action="" id="search_form">
+                <label for="name_of_class">Class Name: </label>
+                <input id="name_of_class" type="text">
+                <label for="group_code">Group Code: </label>
+                <input id="group_code" type="text">
+                <button class="search_button">Search</button>
+            </form>
+
+            <div class="line"></div>
+
             <table class="table">
                 <tbody>
-                    <tr id="profile_align">
-                        <td><img src="images/profile.png" class="rounded float-right" id="profile_image" alt="..."></td>
-                        <td class="profile_info">
-                            <tr>
-                                <th scope="col">Name: </th>
-                                <td scope="col">Adithya Kethu</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Bio: </th>
-                                <td>I am a passionate CS student.</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Major:</th>
-                                <td>Computer Science</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Grad Year:</th>
-                                <td colspan="2">2023</td>
-                            </tr>
-                        </td>
+                    <tr>
+                        <th scope="col">Class Name </th>
+                        <th scope="col">Group Name </th>
+                        <th scope="col">Group Code </th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Monkey</td>
+                        <td>32456</td>
+                        <td><button class="search_button">Join</button></td>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Snake</td>
+                        <td>32457</td>
+                        <td><button class="search_button">Join</button></td>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Elephant</td>
+                        <td>32459</td>
+                        <td><button class="search_button">Join</button></td>
                     </tr>
                 </tbody>
             </table>
-            
-            <div class="line"></div>
-            <h4>My Groups</h4>
-            <table class="table">
-                <tbody>
-                    <td style="display: flex; flex-direction: column; align-self: flex-end;">
-                        <tr>
-                            <th scope="col">Name </th>
-                            <th scope="col">Subject </th>
-                            <th scope="col">Class </th>
-                            <td scope="col">Size</td>
-                        </tr>
-                        <tr>
-                            <td>Web Dev</td>
-                            <td>CompSci</td>
-                            <td>CS326</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Web Dev</td>
-                            <td>CompSci</td>
-                            <td>CS326</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Web Dev</td>
-                            <td>CompSci</td>
-                            <td>CS326</td>
-                            <td>10</td>
-                        </tr>
-                    </td>
-                </tbody>
-            </table>
-            
         </div>
-        
-        
     </div>
 </div>
 

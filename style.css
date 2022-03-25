@@ -211,3 +211,27 @@ a.article:hover {
     display: flex;
     justify-content: space-between;
 }
+
+/* ---------------------------------------------------
+    GROUP SEARCH STYLE
+----------------------------------------------------- */
+
+#search_form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.search_button {
+    border-radius: 10px;
+    width: 100px;
+    padding: 5px;
+    background-color: #b4bfe7;
+}
+
+.search_button:hover {
+    border-radius: 10px;
+    width: 100px;
+    padding: 5px;
+    background-color: #3c5fdf;
+    color: #fff;
+}
