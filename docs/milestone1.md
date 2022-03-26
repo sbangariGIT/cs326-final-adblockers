@@ -1,6 +1,6 @@
 # Milestone 1
 
-# Vision
+## Vision ##
 
 ### Landing Page ###
 This is going to be our home screen, Here we will have the users the option to see the already existing study groups.
