@@ -13,6 +13,10 @@ p {
     color: #999;
 }
 
+h1, h2{
+    padding-bottom: 10px;
+}
+
 a,
 a:hover,
 a:focus {
@@ -155,6 +159,7 @@ a.article:hover {
 #content.active {
     width: 100%;
 }
+
 
 
 /* ---------------------------------------------------

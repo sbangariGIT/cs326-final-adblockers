@@ -16,135 +16,94 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <title>StudyBuddy</title>
 </head>
-<div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h2><b>Study Buddy</b></h2>
-        </div>
+<body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModalLabel" id="login">
+    Login
+    </button>
 
-        <ul class="list-unstyled components">
-            <li class="active">
-                <a href="index.html">My Profile</a>
-            </li>
-            <li>
-                <a href="group_search.html">Join a group</a>
-            </li>
-            <li>
-                <a href="create-group.html">Create a group</a>
-            </li>
-            <li>
-                <a href="#">Settings</a>
-            </li>
-            <li>
-                <a href="#">Log-out</a>
-            </li>
-        </ul>
-    </nav>
-
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModalLabel" id="signup">
+        Sign Up
+    </button>
     <!-- Page Content  -->
-    <div id="content">
+    <div id="content.active">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Menu</span>
-                </button>
-                <a class="navbar-brand" href="#">Study Buddy</a>
-            </div>
-        </nav>
-
-        <h2>My Profile</h2>
-        <div class="line"></div>
-        <div class="text-left">
-            <table class="table">
-                <tbody>
-                    <tr id="profile_align">
-                        <td><img src="images/profile.png" class="rounded float-right" id="profile_image" alt="..."></td>
-                        <td><a href="profile-edit.html" class="search_button">Edit</a></td>
-                        <td class="profile_info">
-                            <tr>
-                                <th scope="col">Name: </th>
-                                <td scope="col">Adithya Kethu</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Bio: </th>
-                                <td>I am a passionate CS student.</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Major:</th>
-                                <td>Computer Science</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Grad Year:</th>
-                                <td colspan="2">2023</td>
-                            </tr>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="line"></div>
-
-            <div class="grid">
-                <div class="grid_item">
-                    <h4>My Groups</h4>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th scope="col">Name </th>
-                                <th scope="col">Subject </th>
-                                <th scope="col">Class </th>
-                                <th scope="col"></th>
-                            </tr>
-                            <tr>
-                                <td>Web Dev</td>
-                                <td>CompSci</td>
-                                <td>CS326</td>
-                                <td><a href="group_page.html" class="search_button">Enter</a></td>
-                            </tr>
-                            <tr>
-                                <td>Web Dev</td>
-                                <td>CompSci</td>
-                                <td>CS326</td>
-                                <td><a href="group_page.html" class="search_button">Enter</a></td>
-                            </tr>
-                            <tr>
-                                <td>Web Dev</td>
-                                <td>CompSci</td>
-                                <td>CS326</td>
-                                <td><a href="group_page.html" class="search_button">Enter</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="grid_item">
-                    <h4>Notifications</h4>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th scope="col">Notification</th>
-                            </tr>
-                            <tr>
-                                <td class="noti">You have a message from group 'Web Dev'<button class="btn btn-danger">X</button></td>
-                            </tr>
-                            <tr>
-                                <td class="noti">Holland wants to join your group - Math132<button class="search_button">Accept</button><button class="btn btn-danger">Decline</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            
-        </div>
-        
-        
-    </div>
+        <h1 id="head">Welcome</h1>
+        <h2 id="head">Available groups</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="col">Class Name </th>
+                    <th scope="col">Group Name </th>
+                    <th scope="col">Group Code </th>
+                    <th scope="col"></th>
+                </tr>
+                <tr>
+                    <td>Web Dev</td>
+                    <td>Monkey</td>
+                    <td>32456</td>
+                    <td><button class="search_button">Join</button></td>
+                </tr>
+                <tr>
+                    <td>Web Dev</td>
+                    <td>Snake</td>
+                    <td>32457</td>
+                    <td><button class="search_button">Join</button></td>
+                </tr>
+                <tr>
+                    <td>Web Dev</td>
+                    <td>Elephant</td>
+                    <td>32459</td>
+                    <td><button class="search_button">Join</button></td>
+                </tr>
+            </tbody>
+        </table>
 </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="loginModalLabel" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Modal body text goes here.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="signUpModalLabel" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Modal body text goes here.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal" data-target="#loginModalLabel">Login</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 <!-- jQuery CDN - Slim version (=without AJAX) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!-- Popper.JS -->
@@ -153,19 +112,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <!-- jQuery Custom Scroller CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar, #content').toggleClass('active');
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
 </script>
 </body>
 </html>
