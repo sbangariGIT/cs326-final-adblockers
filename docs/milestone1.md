@@ -2,6 +2,9 @@
 
 ## Vision ##
 
+Below given are our wireframes with the same order as a new user would observe, here we aim to make you understand what the flow would look like with description of each page.
+Below attached is also our prototype in figma to give a feel for how the interactions feel. The html and CSS have the same structure with enhanced design elements.
+
 ### Landing Page ###
 This is going to be our home screen, Here we will have the users the option to see the already existing study groups.
 However in order to join any of these groups the user must first Login In
