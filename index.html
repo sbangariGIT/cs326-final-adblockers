@@ -1,117 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
     <title>StudyBuddy</title>
 </head>
+
 <body>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModalLabel" id="login">
-    Login
+    <div id="authenticationButtons">
+    <button type="button" class="btn" data-toggle="modal" data-target="#loginModalLabel" id="loginbutton">
+        Login
     </button>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModalLabel" id="signup">
+    <button type="button" class="btn" data-toggle="modal" data-target="#signUpModalLabel" id="signupbutton">
         Sign Up
     </button>
+</div>
     <!-- Page Content  -->
     <div id="content.active">
 
-        <h1 id="head">Welcome</h1>
-        <h2 id="head">Available groups</h1>
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th scope="col">Class Name </th>
-                    <th scope="col">Group Name </th>
-                    <th scope="col">Group Code </th>
-                    <th scope="col"></th>
-                </tr>
-                <tr>
-                    <td>Web Dev</td>
-                    <td>Monkey</td>
-                    <td>32456</td>
-                    <td><button class="search_button">Join</button></td>
-                </tr>
-                <tr>
-                    <td>Web Dev</td>
-                    <td>Snake</td>
-                    <td>32457</td>
-                    <td><button class="search_button">Join</button></td>
-                </tr>
-                <tr>
-                    <td>Web Dev</td>
-                    <td>Elephant</td>
-                    <td>32459</td>
-                    <td><button class="search_button">Join</button></td>
-                </tr>
-            </tbody>
-        </table>
-</div>
+        <h1 id="head" style="padding-top: 100px;">Welcome</h1>
+        <h2 id="head" style="padding-top: 20px;">Available groups</h1>
 
-  <!-- Modal -->
-  <div class="modal fade" id="loginModalLabel" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            Modal body text goes here.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+            <div class="text-left">
+                <form action="" id="search_form">
+                    <label for="name_of_class">Class Name: </label>
+                    <input id="name_of_class" type="text">
+                    <label for="group_code">Group Code: </label>
+                    <input id="group_code" type="text">
+                    <button class="search_button">Search</button>
+                </form>
+            
+                <div class="line"></div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="col">Class Name </th>
+                        <th scope="col">Group Name </th>
+                        <th scope="col">Group Code </th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Monkey</td>
+                        <td>32456</td>
+                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button></td>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Snake</td>
+                        <td>32457</td>
+                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button></td>
+                    </tr>
+                    <tr>
+                        <td>Web Dev</td>
+                        <td>Elephant</td>
+                        <td>32459</td>
+                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel" >Join</button></td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="signUpModalLabel" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Modal -->
+    <div class="modal fade" id="loginModalLabel" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="md-form">
+                            <label>Your Email</label>
+                            <input type="email" class="form-control validate">
+                        </div>
+
+                        <div class="md-form">
+                            <label>Password</label>
+                            <input type="password" class="form-control validate">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal" data-target="#signUpModalLabel">Sign Up</button>
+                    <button type="button" class="search_button"><a href="profile.html">Login</a></button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            Modal body text goes here.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal" data-target="#loginModalLabel">Login</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<!-- Popper.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<!-- jQuery Custom Scroller CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-</script>
+    <!-- Modal -->
+    <div class="modal fade" id="signUpModalLabel" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form">
+                        <label>Name</label>
+                        <input type="text" class="form-control validate">
+                    </div>
+
+                    <div class="md-form">
+                        <label>Your Email</label>
+                        <input type="email" class="form-control validate">
+                    </div>
+
+                    <div class="md-form">
+                        <label>Major</label>
+                        <input type="text" class="form-control validate">
+                    </div>
+
+                    <div class="md-form">
+                        <label>Year of Graduation</label>
+                        <input type="text" class="form-control validate">
+                    </div>
+
+                    <div class="md-form">
+                        <label>Password</label>
+                        <input type="password" class="form-control validate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal"
+                        data-target="#loginModalLabel">Login</button>
+                    <button type="button" class="search_button"><a href="profile.html">Sign Up </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    </script>
 </body>
+
 </html>

@@ -13,10 +13,6 @@ p {
     color: #999;
 }
 
-h1, h2{
-    padding-bottom: 10px;
-}
-
 a,
 a:hover,
 a:focus {
@@ -161,6 +157,12 @@ a.article:hover {
 }
 
 
+#authenticationButtons{
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
 
 /* ---------------------------------------------------
     MEDIAQUERIES
