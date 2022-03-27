@@ -30,9 +30,6 @@ This is the page where a user can search for a study group and then request to j
 This is the page where you can create your own study group for students to join.
 
 ![picture alt](../images/create.png "Create Study Group")
-### Edit Profile Page ###
-Edit your exisitng infromation such as graduation year, name, email and profile picture
-
 
 ## Link to our prototype on figma ##
 
