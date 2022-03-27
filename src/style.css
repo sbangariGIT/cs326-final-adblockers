@@ -258,6 +258,18 @@ a.article:hover {
 
 #head{
     text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+#logo {
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+#logoBuddy {
+    color: #3c5fdf;
 }
 
 .cgroup_item {
@@ -308,3 +320,25 @@ a.article:hover {
     border: 2px solid black;
     padding: 5px;
 }
+
+/* ---------------------------------------------------
+    EDIT PROFILE PAGE STYLE
+----------------------------------------------------- */
+
+#image_input{
+    display: flex;
+    align-items: center;
+}
+
+.in_data{
+    display: flex;
+    align-self: flex-start;
+}
+
+#edit_save{
+    padding: 3px;
+    border: 2px solid black;
+    background-color: #3c5fdf;
+    color: #ddd;
+}
+

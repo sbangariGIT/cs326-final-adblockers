@@ -9,7 +9,7 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -24,13 +24,13 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li>
+            <li class="active">
                 <a href="profile.html">My Profile</a>
             </li>
             <li>
                 <a href="group_search.html">Join a group</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="create-group.html">Create a group</a>
             </li>
             <li>
@@ -56,26 +56,38 @@
             </div>
         </nav>
 
-        <h1 id="head">Create a Group</h1>
-        <div class="grid">
-            <div class="cgroup_item item_label">Group Name: </div>
-            <div class="cgroup_item"><input type="text" id="g-name" size="50"></div>
-
-            <div class="cgroup_item item_label">Class: </div>
-            <div class="cgroup_item"><input type="text" id="g-name" size="50"></div>
-
-            <div class="cgroup_item item_label">Type: </div>
-            <div class="cgroup_item"> 
-                <input type="radio" id="public" name="g_type" value="public">
-                <label for="public">Public</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="css" name="g_type" value="private">
-                <label for="private">Private</label>
-            </div>
-
-
+        <h2>My Profile</h2>
+        <div class="line"></div>
+        <div class="text-left">
+            <table class="table">
+                <tbody>
+                    <tr id="profile_align">
+                        <td><img src="../images/profile.png" class="rounded float-right" id="profile_image" alt="..."></td>
+                        <td id="image_input">Add new profile picture: &nbsp; <input type="file"> </td>
+                    </tr>
+                    <tr>
+                        <td scope="col">Name: </th>
+                        <td scope="col"> <input class="in_data" type="text"> </td>
+                    </tr>
+                    <tr>
+                        <td scope="col">Bio: </th>
+                        <td><input class="in_data" type="text"> </td>
+                    </tr>
+                    <tr>
+                        <td scope="col">Major:</th>
+                        <td> <input class="in_data" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td scope="col">Grad Year:</th>
+                        <td colspan="2"> <input class="in_data" type="text"> </td>
+                    </tr>
+                    </td>
+                </tbody>
+            </table>
         </div>
-
+        <a id="edit_save" href="profile.html">Save</a>
+        
+        
     </div>
 </div>
 
