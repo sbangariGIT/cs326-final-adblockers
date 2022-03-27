@@ -258,6 +258,18 @@ a.article:hover {
 
 #head{
     text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+#logo {
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+#logoBuddy {
+    color: #3c5fdf;
 }
 
 .cgroup_item {
