@@ -233,6 +233,8 @@ function load_data(){
     table.appendChild(tr)
   });
 }
+
+//Trigering of notification
 const search_button = document.getElementById("search");
 const clear_button = document.getElementById("clear_button");
 
@@ -276,7 +278,7 @@ function search(){
                 const td3 = document.createElement('td');
                 td3.appendChild(document.createTextNode(element.group_id));
                 const td4 = document.createElement('td');
-                td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
+                td4.innerHTML = `<button class="search_button">Join</button>`;
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
