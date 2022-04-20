@@ -43,6 +43,22 @@ function saveToGroupFile(path) {
   };
 }
 
+function checkForMember(key, value, userId) {
+
+}
+
+async function getMyGroups(userId) {
+  const groups = await groupsFunc();
+  let result = [];
+  groups.forEach(element => {
+    const asArray = Object.entries(groups);
+    
+    const myGroups = Object.fromEntries(filtered);
+  });
+  
+  return result;
+}
+
 const app = express();
 const port = 3000;
 app.use(logger('dev'));
