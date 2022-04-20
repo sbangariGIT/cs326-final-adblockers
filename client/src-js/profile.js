@@ -1,11 +1,8 @@
 const ls = window.localStorage;
 
 const myGroupsTableElement = document.getElementById('my-groups');
-// const myGroupsArray = await fetch(`/myGroups`, {
-//     method: 'GET'
-// });
 
-const myGroupsArray = [{
+const myGroupsArray2 = [{
     "group_id": "0913",
     "class": "CS-58",
     "name": "Transcof",
@@ -199,7 +196,10 @@ const myGroupsArray = [{
     "max": 10
   }];
 
-function displayGroups() {
+async function displayGroups() {
+    const myGroupsArray = await fetch(`myGroups`, {
+        method: 'GET'
+    });
     myGroupsTableElement.innerHTML = `
         <tr>
         <th scope="col">Name </th>
@@ -269,7 +269,7 @@ async function displayNotifications () {
 };
 
 async function deleteNoti(id) {
-    await fetch(`client/src/deleteNoti?sent_by_id=${id}`, {
+    await fetch(`deleteNoti?sent_by_id=${id}`, {
         method: 'DELETE'
     });
     displayNotifications();

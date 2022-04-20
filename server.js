@@ -87,6 +87,13 @@ app.get('/myNotis', async (request, response) => {
   response.status(200).json(arr);
 });
 
+app.delete('/deleteNoti', async (request, response) => {
+  console.log('here');
+  const options = request.query;
+  const arr = await getMyNotis(options.sent_by_id);
+  response.status(200).json(arr);
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
