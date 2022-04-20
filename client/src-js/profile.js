@@ -1,5 +1,7 @@
+const ls = window.localStorage;
+
 const myGroupsTableElement = document.getElementById('my-groups');
-// const myGroupsArray = await fetch('/myGroups', {
+// const myGroupsArray = await fetch(`/myGroups`, {
 //     method: 'GET'
 // });
 
@@ -198,7 +200,7 @@ const myGroupsArray = [{
   }];
 
 function displayGroups() {
-    console.log('hello');
+    console.log(myGroupsArray);
     myGroupsTableElement.innerHTML = `
         <tr>
         <th scope="col">Name </th>
@@ -210,9 +212,9 @@ function displayGroups() {
     myGroupsArray.forEach((obj) => {
         const tr = document.createElement('tr');
         const td1 = document.createElement('td');
-        td1.appendChild(document.createTextNode(obj.name));
+        td1.appendChild(document.createTextNode(obj.group_id));
         const td2 = document.createElement('td');
-        td2.appendChild(document.createTextNode(obj.subject));
+        td2.appendChild(document.createTextNode(obj.name));
         const td3 = document.createElement('td');
         td3.appendChild(document.createTextNode(obj.class));
         const td4 = document.createElement('td');
@@ -228,9 +230,9 @@ function displayGroups() {
 window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
-// const myNotificationsArray = await fetch('/myNotis', {
-//     method: 'GET'
-// });
+const myNotificationsArray = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
+    method: 'GET'
+});
 
 function displayNotifications () {
     myNotificationsTableElement.innerHTML = ``;

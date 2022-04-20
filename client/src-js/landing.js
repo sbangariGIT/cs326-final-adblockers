@@ -9,6 +9,21 @@
 //     return data;
 //   }
 
+const ls = window.localStorage;
+
+const login = document.getElementById('login-button');
+const register = document.getElementById('register-button');
+
+login.addEventListener('click', () => {
+  const email_value = document.getElementById('email-input').value.trim();
+  ls.setItem('email', email_value);
+});
+
+register.addEventListener('click', () => {
+  const email_value = document.getElementById('email-value').value.trim();
+  ls.setItem('email', email_value);
+});
+
 const dummy_data = [{
     "group_id": "0913",
     "class": "CS-58",

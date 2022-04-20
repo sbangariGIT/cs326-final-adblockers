@@ -4,7 +4,8 @@
     "name": "Zontrax",
     "major": "Human Resources",
     "cred_level": "Freshmen",
-    "profile_url": "https://robohash.org/voluptatemreprehenderitexcepturi.png?size=50x50&set=set1"
+    "profile_url": "https://robohash.org/voluptatemreprehenderitexcepturi.png?size=50x50&set=set1",
+    "notification": []
   }, {
     "id": 2,
     "email": "zruncieman1@live.com",

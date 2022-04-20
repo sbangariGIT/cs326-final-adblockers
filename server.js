@@ -59,6 +59,18 @@ async function getMyGroups(userId) {
   return result;
 }
 
+async function getMyNotis(userId) {
+  const users = await usersFunc();
+  let result = {};
+  users.forEach(element => {
+    if(element.hasOwnProperty("notification") && element.id == userId) {
+      return element.notification;
+    }
+  });
+  
+  return result;
+}
+
 const app = express();
 const port = 3000;
 app.use(logger('dev'));
@@ -66,6 +78,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/client', express.static('client'));
+
+app.get('/myNotis', async (request, response) => {
+  const options = request.query;
+  const arr = await getMyNotis(options.email);
+  response.status(200).json(arr);
+});
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
