@@ -2,14 +2,14 @@
   "name": "cs326-final-adblockers",
   "version": "1.0.0",
   "description": "CS326 Final Project",
-  "main": "server.js",
+  "main": "server/server.js",
   "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",

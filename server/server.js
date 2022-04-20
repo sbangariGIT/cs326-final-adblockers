@@ -6,7 +6,7 @@ const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
 
 // Returns a function that will read a score file.
-function readFile(path) {
+function read(path) {
   return async () => {
     try {
       const file = await readFile(path, 'utf8');
@@ -20,8 +20,8 @@ function readFile(path) {
 }
 
 // Create functions for reading from files.
-const usersFunc = readFile(USERS_FILE);
-const groupsFunc = readFile(GROUPS_FILE);
+const usersFunc = read(USERS_FILE);
+const groupsFunc = read(GROUPS_FILE);
 
 // Returns a function that will save a user to the user file.
 function saveToUserFile(path) {
