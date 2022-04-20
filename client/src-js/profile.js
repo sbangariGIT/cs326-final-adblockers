@@ -4,7 +4,7 @@ const myGroupsArray = await fetch('/myGroups', {
 });
 const createGroupButton = document.getElementById('create_group');
 
-createGroupButton.addEventListener('click', () => {
+function displayGroups() {
     myGroupsTableElement.innerHTML = `
         <tr>
         <th scope="col">Name </th>
@@ -29,7 +29,9 @@ createGroupButton.addEventListener('click', () => {
         tr.appendChild(td4);
         myGroupsTableElement.appendChild(tr)
     });
-});
+};
+
+window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
 const myNotificationsArray = await fetch('/myNotis', {
