@@ -6,7 +6,7 @@ const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
 
 // Returns a function that will read a score file.
-function read(path) {
+function readTheFile(path) {
   return async () => {
     try {
       const file = await readFile(path, 'utf8');
@@ -20,8 +20,8 @@ function read(path) {
 }
 
 // Create functions for reading from files.
-const usersFunc = read(USERS_FILE);
-const groupsFunc = read(GROUPS_FILE);
+const usersFunc = readTheFile(USERS_FILE);
+const groupsFunc = readTheFile(GROUPS_FILE);
 
 // Returns a function that will save a user to the user file.
 function saveToUserFile(path) {
@@ -51,9 +51,20 @@ async function getMyGroups(userId) {
   const groups = await groupsFunc();
   let result = [];
   groups.forEach(element => {
-    const asArray = Object.entries(groups);
     
-    const myGroups = Object.fromEntries(filtered);
+  });
+  
+  return result;
+}
+
+async function getMyNotis(userId) {
+  const users = await usersFunc();
+  console.log(users);
+  let result = {};
+  users.forEach(element => {
+    if(element.hasOwnProperty("notification") && element.id == userId) {
+      return element.notification;
+    }
   });
   
   return result;
@@ -61,12 +72,26 @@ async function getMyGroups(userId) {
 
 const app = express();
 const port = 3000;
-app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(logger('dev'));
 app.use('/client', express.static('client'));
 
+app.get('myNotis', async (request, response) => {
+  console.log('here');
+  const options = request.query;
+  const arr = await getMyNotis(options.email);
+  response.status(200).json(arr);
+});
+
+app.delete('deleteNoti', async (request, response) => {
+  console.log('here');
+  const options = request.body;
+  const arr = await getMyNotis(options.sent_by_id);
+  response.status(200).json(arr);
+});
+
 app.listen(port, () => {
-    console.log(`Server started on link localhost:${port}/client/src/`);
-  });
+    console.log(`Server started on port ${port}`);
+});
