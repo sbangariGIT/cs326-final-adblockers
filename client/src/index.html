@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../src-js/landing.js" type="module"></script>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -21,6 +22,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
+    
     <title>StudyBuddy</title>
 </head>
 
@@ -43,42 +45,14 @@
         <h2 id="head">Available groups</h1>
 
             <div class="text-left">
-                <form action="" id="search_form">
                     <label for="name_of_class">Class Name: </label>
                     <input id="name_of_class" type="text">
                     <label for="group_code">Group Code: </label>
                     <input id="group_code" type="text">
-                    <button class="search_button">Search</button>
-                </form>
-            
+                    <button class="search_button" id="search">Search</button>
+                    <button class="clear_button" id="clear_button">Clear</button>
                 <div class="line"></div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th scope="col">Class Name </th>
-                        <th scope="col">Group Name </th>
-                        <th scope="col">Group Code </th>
-                        <th scope="col"></th>
-                    </tr>
-                    <tr>
-                        <td>Web Dev</td>
-                        <td>Monkey</td>
-                        <td>32456</td>
-                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button></td>
-                    </tr>
-                    <tr>
-                        <td>Web Dev</td>
-                        <td>Snake</td>
-                        <td>32457</td>
-                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button></td>
-                    </tr>
-                    <tr>
-                        <td>Web Dev</td>
-                        <td>Elephant</td>
-                        <td>32459</td>
-                        <td><button class="search_button" data-toggle="modal" data-target="#signUpModalLabel" >Join</button></td>
-                    </tr>
-                </tbody>
+            <table class="table" id="all_groups">
             </table>
     </div>
 
