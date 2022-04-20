@@ -269,7 +269,7 @@ async function displayNotifications () {
 };
 
 async function deleteNoti(id) {
-    await fetch(`/deleteNoti?sent_by_id=${id}`, {
+    await fetch(`client/src/deleteNoti?sent_by_id=${id}`, {
         method: 'DELETE'
     });
     displayNotifications();

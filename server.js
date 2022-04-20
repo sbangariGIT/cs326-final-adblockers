@@ -78,7 +78,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
-app.use('src', express.static('src'));
+app.use('/client', express.static('client'));
 
 app.get('/myNotis', async (request, response) => {
   console.log('here');
