@@ -232,7 +232,8 @@ clear_button.addEventListener("click", load_data);
 function search(){
     const group_code = document.getElementById("group_code").value;
     let res = dummy_data.filter(elem => elem.group_id === group_code);
-    if(res.length !== 0){
+    console.log(res);
+    if( res.length !== 0 ){
         table.innerHTML = '';
         res.forEach(element => {
             const tr = document.createElement('tr');
