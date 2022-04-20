@@ -61,6 +61,7 @@ async function getMyGroups(userId) {
 
 async function getMyNotis(userId) {
   const users = await usersFunc();
+  console.log(users);
   let result = {};
   users.forEach(element => {
     if(element.hasOwnProperty("notification") && element.id == userId) {
@@ -73,13 +74,14 @@ async function getMyNotis(userId) {
 
 const app = express();
 const port = 3000;
-app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use('/client', express.static('client'));
+app.use(logger('dev'));
+app.use('src', express.static('src'));
 
 app.get('/myNotis', async (request, response) => {
+  console.log('here');
   const options = request.query;
   const arr = await getMyNotis(options.email);
   response.status(200).json(arr);
