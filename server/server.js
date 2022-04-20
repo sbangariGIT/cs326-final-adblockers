@@ -68,5 +68,5 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/client', express.static('client'));
 
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+    console.log(`Server started on link localhost:${port}/client/src/`);
   });
