@@ -244,7 +244,9 @@ function displayNotifications () {
             td2.innerHTML = `<a class="search_button">Enter</a>`;
         }
         const td3 = document.createElement('td');
-        td3.appendChild(document.createTextNode(obj.class));
+        td3.appendChild(document.createTextNode(obj.subject));
+        const td4 = document.createElement('td');
+        td4.appendChild(document.createTextNode(obj.class));
         
         tr.appendChild(td1);
         tr.appendChild(td2);

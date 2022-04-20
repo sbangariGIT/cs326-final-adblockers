@@ -63,19 +63,27 @@
                 <tbody>
                     <tr id="profile_align">
                         <td><img src="../images/profile.png" class="rounded float-right" id="profile_image" alt="..."></td>
-                        <td id="image_input">Add new profile picture: &nbsp; <input type="file"> </td>
+                        <td id="image_input">Add new profile picture: &nbsp; <input type="file" accept=".png, .jpg, .jpeg"> </td>
                     </tr>
                     <tr>
                         <td scope="col">Name: </th>
-                        <td scope="col"> <input class="in_data" type="text"> </td>
+                        <td scope="col"> <input class="in_data" type="text" placeholder="no change"> </td>
                     </tr>
                     <tr>
                         <td scope="col">Major:</th>
-                        <td> <input class="in_data" type="text"></td>
+                        <td> <input class="in_data" type="text" placeholder="no change"></td>
                     </tr>
                     <tr>
-                        <td scope="col">Grad Year:</th>
-                        <td colspan="2"> <input class="in_data" type="text"> </td>
+                        <td scope="col">Academic Level
+                            :</th>
+                        <td colspan="2"> 
+                            <select name="cred_level" id="cred_level">
+                                <option value="freshman">Freshman</option>
+                                <option value="sophomore">Sophomore</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                            </select> 
+                        </td>
                     </tr>
                     </td>
                 </tbody>
