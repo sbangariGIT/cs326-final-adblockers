@@ -223,16 +223,16 @@ function load_data(){
   });
 }
 const search_button = document.getElementById("search");
+const clear_button = document.getElementById("clear_button");
 
-search_button.addEventListener("click", search());
+search_button.addEventListener("click", search);
+clear_button.addEventListener("click", load_data);
+
 
 function search(){
-    console.log("Hi");
     const group_code = document.getElementById("group_code").value;
-    console.log(group_code);
     let res = dummy_data.filter(elem => elem.group_id === group_code);
     if(res.length !== 0){
-        console.log("Hi friends");
         table.innerHTML = '';
         res.forEach(element => {
             const tr = document.createElement('tr');
