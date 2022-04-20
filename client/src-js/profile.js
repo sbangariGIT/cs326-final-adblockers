@@ -230,10 +230,23 @@ window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
 
+const myNotificationsArray = [
+    {
+        "message": "Matibura joined the group",
+        "sent_by_id": 1,
+        "group_name": "Trippledex"
+    },
+    {
+        "message": "Trudermax sent you a message",
+        "sent_by_id": 2,
+        "group_name": "Trippledex"
+    }
+];
+
 async function displayNotifications () {
-    const myNotificationsArray = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
-        method: 'GET'
-    });
+    // const myNotificationsArray = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
+    //     method: 'GET'
+    // });
     myNotificationsTableElement.innerHTML = `
         <tr>
             <th scope="col">Notification</th>
@@ -245,10 +258,13 @@ async function displayNotifications () {
         const td1 = document.createElement('td');
         td1.appendChild(document.createTextNode(obj.message));
         const td2 = document.createElement('td');
-        td2.innerHTML = `<button class="btn btn-danger" onclick="deleteNoti(${obj.sent_by_id})">X</button>`;
+        td2.innerHTML = `<button class="btn btn-danger" id="deleteNoti${obj.sent_by_id}">X</button>`;
         tr.appendChild(td1);
         tr.appendChild(td2);
         myNotificationsTableElement.appendChild(tr)
+        document.getElementById(`deleteNoti${obj.sent_by_id}`).addEventListener('click', () => {
+            deleteNoti(obj.sent_by_id);
+        });
     });
 };
 
