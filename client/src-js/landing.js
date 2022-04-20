@@ -230,7 +230,7 @@ clear_button.addEventListener("click", load_data);
 
 
 function search(){
-    const group_code = document.getElementById("group_code").value;
+    const group_code = document.getElementById("group_code").value.trim();
     let res = dummy_data.filter(elem => elem.group_id === group_code);
     console.log(res);
     if( res.length !== 0 ){
@@ -252,7 +252,7 @@ function search(){
             table.appendChild(tr)
           });
     }else{
-        const class_name = document.getElementById("name_of_class").value;
+        const class_name = document.getElementById("name_of_class").value.trim();
         res = dummy_data.filter(elem => elem.class === class_name);
         if(res.length !== 0){
             table.innerHTML = '';
