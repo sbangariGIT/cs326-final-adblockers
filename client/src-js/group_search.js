@@ -225,7 +225,7 @@ function load_data(){
     const td3 = document.createElement('td');
     td3.appendChild(document.createTextNode(element.group_id));
     const td4 = document.createElement('td');
-    td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
+    td4.innerHTML = `<button class="search_button" id="${element.group_id}">Join</button>`;
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
