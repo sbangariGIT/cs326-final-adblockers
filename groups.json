@@ -1,6 +1,6 @@
 [{
     "group_id": "0913",
-    "class": "CS-58",
+    "_class": "CS-58",
     "name": "Transcof",
     "members": [
       {
@@ -14,7 +14,7 @@
     "max": 10
   }, {
     "group_id": "7713",
-    "class": "OIM-16",
+    "_class": "OIM-16",
     "name": "Temp",
     "members": [
       {
@@ -30,7 +30,7 @@
     "max": 10
   }, {
     "group_id": "7711",
-    "class": "MATH-66",
+    "_class": "MATH-66",
     "name": "Matsoft",
     "members": [
       {
@@ -44,7 +44,7 @@
     "max": 10
   }, {
     "group_id": "7254",
-    "class": "CS-81",
+    "_class": "CS-81",
     "name": "Tres-Zap",
     "members": [
       {
@@ -64,7 +64,7 @@
     "max": 10
   }, {
     "group_id": "3423",
-    "class": "PUBHEL-91",
+    "_class": "PUBHEL-91",
     "name": "Trippledex",
     "members": [
       {
@@ -84,7 +84,7 @@
     "max": 10
   }, {
     "group_id": "8788",
-    "class": "FIN-84",
+    "_class": "FIN-84",
     "name": "Flexidy",
     "members": [
       {
@@ -110,7 +110,7 @@
     "max": 10
   }, {
     "group_id": "5369",
-    "class": "CS-43",
+    "_class": "CS-43",
     "name": "Asoka",
     "members": [
       {
@@ -124,7 +124,7 @@
     "max": 10
   }, {
     "group_id": "4052",
-    "class": "BIO-89",
+    "_class": "BIO-89",
     "name": "Trippledex",
     "members": [
         {
@@ -138,7 +138,7 @@
     "max": 10
   }, {
     "group_id": "2862",
-    "class": "CHEM-13",
+    "_class": "CHEM-13",
     "name": "Mat Lam Tam",
     "members": [
       {
@@ -152,7 +152,7 @@
     "max": 10
   }, {
     "group_id": "2046",
-    "class": "PHY-44",
+    "_class": "PHY-44",
     "name": "Sonsing",
     "members": [
       {
@@ -172,7 +172,7 @@
     "max": 10
   }, {
     "group_id": "2813",
-    "class": "MATH-07",
+    "_class": "MATH-07",
     "name": "Gembucket",
     "members": [
       {
