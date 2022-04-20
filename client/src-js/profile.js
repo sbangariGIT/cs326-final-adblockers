@@ -2,7 +2,6 @@ const myGroupsTableElement = document.getElementById('my-groups');
 const myGroupsArray = await fetch('/myGroups', {
     method: 'GET'
 });
-const createGroupButton = document.getElementById('create_group');
 
 function displayGroups() {
     myGroupsTableElement.innerHTML = `
