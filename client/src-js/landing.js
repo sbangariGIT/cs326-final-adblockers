@@ -1,3 +1,14 @@
+// const dummy_data = await getAllGroup();
+
+
+// async function getAllGroup() {
+//     const response = await fetch(`http://localhost:3000/getAllGroup`, {
+//       method: 'GET',
+//     });
+//     const data = await response.json();
+//     return data;
+//   }
+
 const dummy_data = [{
     "group_id": "0913",
     "class": "CS-58",
