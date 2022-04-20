@@ -2,8 +2,9 @@ const myGroupsTableElement = document.getElementById('my-groups');
 const myGroupsArray = await fetch('/myGroups', {
     method: 'GET'
 });
+const createGroupButton = document.getElementById('create_group');
 
-document.addEventListener('click', () => {
+createGroupButton.addEventListener('click', () => {
     myGroupsTableElement.innerHTML = `
         <tr>
         <th scope="col">Name </th>
@@ -11,7 +12,7 @@ document.addEventListener('click', () => {
         <th scope="col">Class </th>
         <th scope="col"></th>
         </tr>
-    `
+    `;
     myGroupsArray.forEach((obj) => {
         const tr = document.createElement('tr');
         const td1 = document.createElement('td');
@@ -29,3 +30,32 @@ document.addEventListener('click', () => {
         myGroupsTableElement.appendChild(tr)
     });
 });
+
+const myNotificationsTableElement = document.getElementById('my-notis');
+const myNotificationsArray = await fetch('/myNotis', {
+    method: 'GET'
+});
+
+function displayNotifications () {
+    myNotificationsTableElement.innerHTML = ``;
+    myNotificationsArray.forEach((obj) => {
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        td1.appendChild(document.createTextNode(obj.description));
+        const td2 = document.createElement('td');
+        const message_type = obj.type;
+        if (message_type === 'notification') {
+            td2.innerHTML = `<a class="search_button">Enter</a>`;
+        }
+        const td2 = document.createElement('td');
+        td2.appendChild(document.createTextNode(obj.subject));
+        const td3 = document.createElement('td');
+        td3.appendChild(document.createTextNode(obj.class));
+        
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        myGroupsTableElement.appendChild(tr)
+    });
+};
+
+window.onload = displayNotifications();
