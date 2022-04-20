@@ -6,7 +6,7 @@ const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
 
 // Returns a function that will read a score file.
-function readFile(path) {
+function readTheFile(path) {
   return async () => {
     try {
       const file = await readFile(path, 'utf8');
@@ -20,8 +20,8 @@ function readFile(path) {
 }
 
 // Create functions for reading from files.
-const usersFunc = readFile(USERS_FILE);
-const groupsFunc = readFile(GROUPS_FILE);
+const usersFunc = readTheFile(USERS_FILE);
+const groupsFunc = readTheFile(GROUPS_FILE);
 
 // Returns a function that will save a user to the user file.
 function saveToUserFile(path) {
@@ -78,7 +78,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
-app.use('/client', express.static('client'));
+app.use('/src', express.static('src'));
 
 app.get('/myNotis', async (request, response) => {
   console.log('here');
@@ -89,7 +89,7 @@ app.get('/myNotis', async (request, response) => {
 
 app.delete('/deleteNoti', async (request, response) => {
   console.log('here');
-  const options = request.query;
+  const options = request.body;
   const arr = await getMyNotis(options.sent_by_id);
   response.status(200).json(arr);
 });

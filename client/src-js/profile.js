@@ -269,10 +269,14 @@ async function displayNotifications () {
 };
 
 async function deleteNoti(id) {
+    const data = {
+        sent_by_id: id
+    };
     await fetch(`deleteNoti?sent_by_id=${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        body: JSON.stringify(data)
     });
     displayNotifications();
-}
+};
 
 window.onload = displayNotifications();
