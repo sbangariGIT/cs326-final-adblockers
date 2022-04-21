@@ -68,11 +68,10 @@ async function getMyGroups(emailId) {
 
 async function getMyNotis(emailId) {
   const users = await usersFunc();
-  console.log(users);
-  let result = {};
+  let result = [];
   users.forEach(element => {
     if(element.hasOwnProperty("notification") && element.email == emailId) {
-      return element.notification;
+      result = element.notification;
     }
   });
   
@@ -82,12 +81,14 @@ async function getMyNotis(emailId) {
 async function deleteNotis(emailId, given_id) {
   let users = await usersFunc();
   users.forEach(element => {
-    if(element.hasOwnProperty("notification") && element.id == emailId) {
-      element.notification = element.notification.filter(message => message.id !== given_id);
+    if(element.hasOwnProperty("notification") && element.email === emailId) {
+      let dict = element.notification;
+      console.log(dict['id']);
+      element.notification = element.notification.filter(message => message.id === given_id);
+      console.log(element.notification);
+      // writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
   });
-  writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
-  return result;
 }
 
 const app = express();
@@ -111,7 +112,7 @@ app.get('/myGroups', async (request, response) => {
 });
 
 app.delete('/deleteNoti', async (request, response) => {
-  const options = request.body;
+  const options = request.query;
   await deleteNotis(options.email, options.id);
   response.status(200).json( { status: "successful" })
 });
