@@ -267,26 +267,26 @@
 
 
 ## Photo ##
-![picture alt](../client/images/milestone2/homescreen.png "homescreen")
+![picture alt](../images/milestone2/homescreen.png "homescreen")
 
 Using get to get all the groups to display on the home screen
 
 
-![picture alt](../client/images/milestone2/loginScreen.png "loginscreen")
+![picture alt](../images/milestone2/loginScreen.png "loginscreen")
 
 Using get login api to check if the user exists if they do they log into the application
 
 
-![picture alt](../client/images/milestone2/sign_up.png "signupscreen")
+![picture alt](../images/milestone2/sign_up.png "signupscreen")
 
 Using post register to send in all the data and register a new user, then it takes you into the application
 
-![picture alt](../client/images/milestone2/mygroups.png "mygroups")
+![picture alt](../images/milestone2/mygroups.png "mygroups")
 
 Using getNoti for getting coresponding notifications of the user. Get my groups from the user id and get all the groups from the chat. 
 
 
-![picture alt](../client/images/milestone2/join.png "mygroups")
+![picture alt](../images/milestone2/join.png "mygroups")
 
 After joining a group sendNoti triggers Notification that you have joined a group
 
