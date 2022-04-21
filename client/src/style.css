@@ -311,15 +311,12 @@ a.article:hover {
     margin-bottom: 1px;
 }
 
-#create_button{
+#create_div{
     display:flex; 
     justify-content:center;
     margin-top: 15px;
 }
-#create_group{
-    border: 2px solid black;
-    padding: 5px;
-}
+
 
 /* ---------------------------------------------------
     EDIT PROFILE PAGE STYLE
@@ -342,3 +339,19 @@ a.article:hover {
     color: #ddd;
 }
 
+/* ---------------------------------------------------
+    CREATE GROUP PAGE STYLE
+----------------------------------------------------- */
+
+p{
+    margin-left: 5%;
+    margin-right: 5%;
+    color: black;
+}
+
+.invited_people{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    justify-items: center;
+}
