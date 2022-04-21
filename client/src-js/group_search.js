@@ -1,3 +1,5 @@
+const ls = window.localStorage;
+
 const dummy_data = await getAllGroup();
 
 
@@ -32,12 +34,31 @@ function load_data(){
     const td3 = document.createElement('td');
     td3.appendChild(document.createTextNode(element.group_id));
     const td4 = document.createElement('td');
-    td4.innerHTML = `<button class="search_button" id="${element.group_id}">Join</button>`;
+    td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
     tr.appendChild(td4);
     table.appendChild(tr)
+    document.getElementById(`group_join${element.group_id}`).addEventListener('click', () => {
+      const data = {
+        "message": `${ls.getItem('email')} has joined the group ${element.name}`,
+        "sent_by_id": 2,
+        "group_name": `${element.name}`,
+        "id": 3,
+        "user_email": ls.getItem('email')
+      }
+      sendNotification(data);
+      alert(`You have joined the group ${element.name}. Check your profile for more details.`);
+    });
+  });
+}
+
+async function sendNotification(data) {
+  await fetch(`/sendNoti`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {'Content-Type': 'application/json'}
   });
 }
 
@@ -64,7 +85,7 @@ function search(){
             const td3 = document.createElement('td');
             td3.appendChild(document.createTextNode(element.group_id));
             const td4 = document.createElement('td');
-            td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
+            td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);

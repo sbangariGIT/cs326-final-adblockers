@@ -1,3 +1,18 @@
+async function createGroup() {
+    const data = {
+        sent_by_id: id
+    };
+    await fetch(`deleteNoti?sent_by_id=${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify(data)
+    });
+    displayNotifications();
+};
+
+/*-----------------------------------------------------------------
+    CRUD OPERATIONS
+-----------------------------------------------------------------*/
+
 const g_name = document.getElementById("g-name");
 const c_name = document.getElementById("c-name");
 const size = document.getElementById("c-size");
@@ -35,6 +50,4 @@ function add_invites(e){
 invite_button.addEventListener('click', add_invites);
 
 
-/*-----------------------------------------------------------------
-    CRUD OPERATIONS
------------------------------------------------------------------*/
+
