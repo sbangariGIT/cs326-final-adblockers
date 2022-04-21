@@ -1,6 +1,3 @@
-You will be creating a Markdown file called milestone2.md in the docs folder of your github repository. It should contain:
-
-A brief and precise representation of APIs for you application:
 ## API Breif ##
 
 1. **GET /myGroups**
@@ -8,7 +5,7 @@ A brief and precise representation of APIs for you application:
 
     **Example Request**:
 
-      [http://localhost:3000/myGroups](http://localhost:3000/myGroups)
+      [http://localhost:3000/myGroups/?email=${ls.getItem('email')](http://localhost:3000/myGroups?email=${ls.getItem('email'))
 
     **Example Request Body**:
       ```json
@@ -89,12 +86,8 @@ A brief and precise representation of APIs for you application:
 
     **Example Request**:
 
-      [http://localhost:3000/myNotis](http://localhost:3000/myNotis)
+      [http://localhost:3000/myNotis?email=${ls.getItem('email')](http://localhost:3000/myNotis?email=${ls.getItem('email'))
 
-    **Example Request Body**:
-      ```json
-      { "email": "wcalcott0@soup.io" }
-      ```
 
     **Example Response** (200 OK status code):
 
@@ -276,12 +269,31 @@ A brief and precise representation of APIs for you application:
 ## Photo ##
 ![picture alt](../client/images/milestone2/homescreen.png "homescreen")
 
+Using get to get all the groups to display on the home screen
 
 
+![picture alt](../client/images/milestone2/loginScreen.png "loginscreen")
+
+Using get login api to check if the user exists if they do they log into the application
+
+
+![picture alt](../client/images/milestone2/sign_up.png "signupscreen")
+
+Using post register to send in all the data and register a new user, then it takes you into the application
+
+![picture alt](../client/images/milestone2/mygroups.png "mygroups")
+
+Using getNoti for getting coresponding notifications of the user. Get my groups from the user id and get all the groups from the chat. 
+
+
+![picture alt](../client/images/milestone2/join.png "mygroups")
+
+After joining a group sendNoti triggers Notification that you have joined a group
 
 ## Team Overview ##
 
 1. Anurag Gumidelli (Anurag-Gumidelli):
+
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>1.Updated the index.html and group_search.html to have the UI elements render via js.
@@ -289,5 +301,8 @@ A brief and precise representation of APIs for you application:
 <br>3. Made dummy data for groups and users so that we can use them to test our Apis.
 <br>4. Wrote the markdown file for the project milestone-2.
 <br>5.Wrote search algorithm to search for study groups based on code and class.
+<br>6.Login Page and API for checking if the user already exists.
+<br>7.Sign UP Page and API for POSTing a new user into the database.
 
 3. Adithya Kethu (akethu):
+
