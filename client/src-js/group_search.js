@@ -45,8 +45,11 @@ function load_data(){
         "message": `${ls.getItem('email')} has joined the group ${element.name}`,
         "sent_by_id": 2,
         "group_name": `${element.name}`,
-        "id": 3,
-        "user_email": ls.getItem('email')
+        "noti_id": 3,
+        "user_email": ls.getItem('email'),
+        "name": ls.getItem('name'),
+        "cred_level": ls.getItem('cred_level'),
+        "user_id": ls.getItem('id')
       }
       sendNotification(data);
       alert(`You have joined the group ${element.name}. Check your profile for more details.`);
