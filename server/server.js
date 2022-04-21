@@ -199,6 +199,7 @@ app.post('/sendNoti', (request, response) => {
     "cred_level": `${options.cred_level}`
   };
   sendNotification(data, options.user_email);
+  console.log(user);
   addUserToGroup(user, options.group_name);
   response.status(200).json({
     "status": "success"

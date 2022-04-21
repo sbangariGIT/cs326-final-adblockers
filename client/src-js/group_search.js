@@ -2,6 +2,9 @@ const ls = window.localStorage;
 
 const dummy_data = await getAllGroup();
 
+document.getElementById('log-out-button').addEventListener('click', () => {
+  ls.clear();
+});
 
 async function getAllGroup() {
     const response = await fetch(`http://localhost:3000/getAllGroup`, {

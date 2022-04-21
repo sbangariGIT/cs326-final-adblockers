@@ -11,6 +11,10 @@ async function getAllGroup() {
 
 const ls = window.localStorage;
 
+// document.getElementById('log-out-button').addEventListener('click', () => {
+//   ls.clear();
+// });
+
 const login = document.getElementById('login-button');
 const register = document.getElementById('register-button');
 

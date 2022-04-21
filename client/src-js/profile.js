@@ -2,7 +2,7 @@ const ls = window.localStorage;
 
 const myGroupsTableElement = document.getElementById('my-groups');
 
-document.getElementsByClassName('log-out-button').addEventListener('click', () => {
+document.getElementById('log-out-button').addEventListener('click', () => {
     ls.clear();
 });
 
