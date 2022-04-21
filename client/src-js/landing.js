@@ -109,11 +109,6 @@ async function register_a_user(){
   const major = document.getElementById("sign_up_major").value;
   const credit = document.getElementById("sign_up_cred_level").value;
   const email = document.getElementById("sign_up_email").value;
-  ls.setItem('name', name);
-  ls.setItem('major', major);
-  ls.setItem('cred_level', credit);
-  ls.setItem('email', email);
-  ls.setItem('id', 30);
   const new_user = {
     id: 30,
     email: email,
@@ -126,6 +121,11 @@ async function register_a_user(){
   let data = await put_user(new_user);
   if(data["status"] === "success"){
     ls.setItem('email', email);
+    ls.setItem('name', name);
+    ls.setItem('major', major);
+    ls.setItem('cred_level', credit);
+    ls.setItem('email', email);
+    ls.setItem('id', 30);
     window.location.href = "profile.html";
   }else{
     alert("Error to register! For testing use:")
@@ -150,6 +150,11 @@ login.addEventListener('click', async () => {
   const data = await check_user(email_value);
   if(data["status"] === "success"){
     ls.setItem('email', email_value);
+    ls.setItem('name', data["name"]);
+    ls.setItem('major', data["major"]);
+    ls.setItem('cred_level', data["cred_level"]);
+    ls.setItem('email', data["email"]);
+    ls.setItem('id', data["id"]);
     window.location.href = "profile.html";
   }else{
     alert("Please create an account!");

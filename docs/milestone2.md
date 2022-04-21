@@ -271,7 +271,13 @@ A brief and precise representation of APIs for you application:
 
 ## Heroku URL ##
 
-In addition, your milestone2.md file must contain a breakdown of the division of labor for each team member — that is, saying who did what. Remember that everyone is expected to contribute roughly equally to each phase of the project. We expect to see similar numbers and kinds of GitHub commits by each student.
+
+
+## Photo ##
+![picture alt](../client/images/milestone2/homescreen.png "homescreen")
+
+
+
 
 ## Team Overview ##
 

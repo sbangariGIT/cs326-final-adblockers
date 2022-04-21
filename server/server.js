@@ -161,6 +161,7 @@ app.get('/login', async (req, res) => {
     res.status(200).json({
       "status": "success",
       "id": result[0]['id'],
+      "name": result[0]['name'],
       "email": result[0]['email'],
       "major": result[0]['major'],
       "cred_level": result[0]['cred_level'],
