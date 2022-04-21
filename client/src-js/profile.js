@@ -204,7 +204,7 @@ async function displayGroups() {
     const data = {
         email: ls.getItem('email')
     }
-    const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
+    const response = await fetch(`window.location.hostname/myGroups?email=${ls.getItem('email')}`, {
         method: 'GET',
     });
     const myGroupsArray = await response.json();
@@ -254,7 +254,7 @@ const myNotificationsArray2 = [
 ];
 
 async function displayNotifications () {
-    const response = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
+    const response = await fetch(`window.location.hostname/myNotis?email=${ls.getItem('email')}`, {
         method: 'GET'
     });
     const myNotificationsArray = await response.json();
@@ -283,7 +283,7 @@ async function deleteNoti(id) {
     const data = {
         sent_by_id: id
     };
-    await fetch(`/deleteNoti?email=${ls.getItem('email')}&id=${id}`, {
+    await fetch(`window.location.hostname/deleteNoti?email=${ls.getItem('email')}&id=${id}`, {
         method: 'DELETE'
     });
     displayNotifications();

@@ -2,7 +2,7 @@ const dummy_data = await getAllGroup();
 
 
 async function getAllGroup() {
-    const response = await fetch(`http://localhost:3000/getAllGroup`, {
+    const response = await fetch(`window.location.hostname/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();
@@ -137,7 +137,7 @@ async function register_a_user(){
 }
 
 async function put_user(new_user){
-  const response = await fetch(`http://localhost:3000/register`, {
+  const response = await fetch(`window.location.hostname/register`, {
     method: 'POST',
     body: JSON.stringify(new_user),
     headers: {
@@ -166,7 +166,7 @@ login.addEventListener('click', async () => {
 });
 
 async function check_user(new_user){
-  const response = await fetch(`http://localhost:3000/login?email=${new_user}`, {
+  const response = await fetch(`window.location.hostname/login?email=${new_user}`, {
     method: 'GET',
   });
   const data = await response.json();

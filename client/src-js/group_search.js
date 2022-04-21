@@ -7,7 +7,7 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 async function getAllGroup() {
-    const response = await fetch(`http://localhost:3000/getAllGroup`, {
+    const response = await fetch(`window.location.hostname/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();
@@ -61,7 +61,7 @@ function load_data(){
 }
 
 async function sendNotification(data) {
-  await fetch(`/sendNoti`, {
+  await fetch(`window.location.hostname/sendNoti`, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {'Content-Type': 'application/json'}
