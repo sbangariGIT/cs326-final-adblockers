@@ -17,7 +17,8 @@
         {
             "message": "Wants to join the group",
             "sent_by_id": 1,
-            "group_name": "Trippledex"
+            "group_name": "Trippledex",
+            "id": 2
         }
     ]
   }, {

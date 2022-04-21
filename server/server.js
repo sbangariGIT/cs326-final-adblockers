@@ -10,7 +10,7 @@ function readTheFile(path) {
   return async () => {
     try {
       const file = await readFile(path, 'utf8');
-      const data = JSON.parse(scoreFile);
+      const data = JSON.parse(file);
       return data;
     } catch (error) {
       // Likely the file doesn't exist
@@ -47,26 +47,40 @@ function checkForMember(key, value, userId) {
 
 }
 
-async function getMyGroups(userId) {
+async function getMyGroups(emailId) {
   const groups = await groupsFunc();
   let result = [];
   groups.forEach(element => {
-    
+    let members = element.members.filter(mem => mem.email === emailId);
+    console.log(members);
+    if(members.length > 0) {
+      result.push(element);
+    }
+  });
+  return result;
+}
+
+async function getMyNotis(emailId) {
+  const users = await usersFunc();
+  console.log(users);
+  let result = {};
+  users.forEach(element => {
+    if(element.hasOwnProperty("notification") && element.email == emailId) {
+      return element.notification;
+    }
   });
   
   return result;
 }
 
-async function getMyNotis(userId) {
-  const users = await usersFunc();
-  console.log(users);
-  let result = {};
+async function deleteNotis(emailId, given_id) {
+  let users = await usersFunc();
   users.forEach(element => {
-    if(element.hasOwnProperty("notification") && element.id == userId) {
-      return element.notification;
+    if(element.hasOwnProperty("notification") && element.id == emailId) {
+      element.notification = element.notification.filter(message => message.id !== given_id);
     }
   });
-  
+  writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
   return result;
 }
 
@@ -78,18 +92,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/client', express.static('client'));
 
-app.get('myNotis', async (request, response) => {
-  console.log('here');
+app.get('/myNotis', async (request, response) => {
   const options = request.query;
   const arr = await getMyNotis(options.email);
   response.status(200).json(arr);
 });
 
-app.delete('deleteNoti', async (request, response) => {
-  console.log('here');
-  const options = request.body;
-  const arr = await getMyNotis(options.sent_by_id);
+app.get('/myGroups', async (request, response) => {
+  const options = request.query;
+  const arr = await getMyGroups(options.email);
   response.status(200).json(arr);
+});
+
+app.delete('/deleteNoti', async (request, response) => {
+  const options = request.body;
+  await deleteNotis(options.email, options.id);
+  response.status(200).json({
+    status: "successful"
+  });
 });
 
 app.listen(port, () => {

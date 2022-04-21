@@ -197,13 +197,17 @@ const myGroupsArray2 = [{
   }];
 
 async function displayGroups() {
-    const myGroupsArray = await fetch(`myGroups`, {
-        method: 'GET'
+    const data = {
+        email: ls.getItem('email')
+    }
+    const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
+        method: 'GET',
     });
+    const myGroupsArray = await response.json();
     myGroupsTableElement.innerHTML = `
         <tr>
+        <th scope="col">Group ID </th>
         <th scope="col">Name </th>
-        <th scope="col">Subject </th>
         <th scope="col">Class </th>
         <th scope="col"></th>
         </tr>
@@ -215,7 +219,7 @@ async function displayGroups() {
         const td2 = document.createElement('td');
         td2.appendChild(document.createTextNode(obj.name));
         const td3 = document.createElement('td');
-        td3.appendChild(document.createTextNode(obj.class));
+        td3.appendChild(document.createTextNode(obj._class));
         const td4 = document.createElement('td');
         td4.innerHTML = `<a href=${obj.url} class="search_button">Enter</a>`;
         tr.appendChild(td1);
@@ -230,23 +234,27 @@ window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
 
-const myNotificationsArray = [
+const myNotificationsArray2 = [
     {
         "message": "Matibura joined the group",
         "sent_by_id": 1,
-        "group_name": "Trippledex"
+        "group_name": "Trippledex",
+        "id": 2
     },
     {
         "message": "Trudermax sent you a message",
         "sent_by_id": 2,
-        "group_name": "Trippledex"
+        "group_name": "Trippledex",
+        "id": 3
     }
 ];
 
 async function displayNotifications () {
-    // const myNotificationsArray = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
-    //     method: 'GET'
-    // });
+    const response = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
+        method: 'GET'
+    });
+    const myNotificationsArray = await response.json();
+    console.log(myNotificationsArray);
     myNotificationsTableElement.innerHTML = `
         <tr>
             <th scope="col">Notification</th>
@@ -254,16 +262,15 @@ async function displayNotifications () {
     `;
     myNotificationsArray.forEach((obj) => {
         const tr = document.createElement('tr');
-        tr.id = 'noti' + obj.sent_by_id
         const td1 = document.createElement('td');
         td1.appendChild(document.createTextNode(obj.message));
         const td2 = document.createElement('td');
-        td2.innerHTML = `<button class="btn btn-danger" id="deleteNoti${obj.sent_by_id}">X</button>`;
+        td2.innerHTML = `<button class="btn btn-danger" id="deleteNoti${obj.id}">X</button>`;
         tr.appendChild(td1);
         tr.appendChild(td2);
         myNotificationsTableElement.appendChild(tr)
-        document.getElementById(`deleteNoti${obj.sent_by_id}`).addEventListener('click', () => {
-            deleteNoti(obj.sent_by_id);
+        document.getElementById(`deleteNoti${obj.id}`).addEventListener('click', () => {
+            deleteNoti(obj.id);
         });
     });
 };
@@ -272,9 +279,8 @@ async function deleteNoti(id) {
     const data = {
         sent_by_id: id
     };
-    await fetch(`deleteNoti?sent_by_id=${id}`, {
-        method: 'DELETE',
-        body: JSON.stringify(data)
+    await fetch(`/deleteNoti?email=${ls.getItem('email')}&id=${id}`, {
+        method: 'DELETE'
     });
     displayNotifications();
 };
