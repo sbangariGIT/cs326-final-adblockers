@@ -187,13 +187,97 @@ A brief and precise representation of APIs for you application:
       {
         "status": "success"
       }
+6. **GET /getAllGroup**
 
-At least one set of four screenshots of your client interface with descriptions
+      This endpoint get the list of all groups
+
+      **Example Request**:
+
+      [http://localhost:3000/getAllGroup](http://localhost:3000/getAllGroup)
+
+
+      **Example Response** (200 OK status code):
+
+      ```json
+      [{
+    "group_id": "2046",
+    "class": "PHY-44",
+    "name": "Sonsing",
+    "members": [
+      {
+        "id": 4,
+        "email": "atownson3@purevolume.com",
+        "name": "Tempsoft",
+        "cred_level": "Sophomore"
+      },
+      {
+        "id": 9,
+        "email": "rcolvine8@liveinternet.ru",
+        "name": "Y-find",
+        "cred_level": "Freshmen"
+      }
+    ],
+    "type": "public",
+    "max": 10
+  }, {
+    "group_id": "2813",
+    "class": "MATH-07",
+    "name": "Gembucket",
+    "members": [
+      {
+        "id": 1,
+        "email": "wcalcott0@soup.io",
+        "name": "Zontrax",
+        "cred_level": "Freshmen"
+      },
+      {
+        "id": 2,
+        "email": "zruncieman1@live.com",
+        "name": "Bytecard",
+        "cred_level": "Junior"
+      }
+    ],
+    "type": "public",
+    "max": 10
+  }]
+
+7. **GET /login**
+
+      This endpoint get the list of all groups
+
+      **Example Request**:
+
+      [http://localhost:3000/login?email=${sample@gmail.com}](http://localhost:3000/login?email=${sample@gmail.com)
+
+
+      **Example Response** (200 OK status code):
+
+       ```json
+      {
+        "status": "success",
+      "id": 10,
+      "email": "sample@gmail.com",
+      "major": "major']",
+      "cred_level": "cred_level",
+      "profile_url": "profile_url"
+      }
+
+       ```json
+      {
+        "status": "no user"
+      }
+
+
 
 ## Heroku URL ##
 
 
-In addition, your milestone2.md file must contain a breakdown of the division of labor for each team member — that is, saying who did what. Remember that everyone is expected to contribute roughly equally to each phase of the project. We expect to see similar numbers and kinds of GitHub commits by each student.
+
+## Photo ##
+![picture alt](../client/images/milestone2/homescreen.png "homescreen")
+
+
+
 
 ## Team Overview ##
 

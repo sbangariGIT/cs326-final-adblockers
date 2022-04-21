@@ -156,6 +156,27 @@ app.get('/getAllGroup', async (req,res) => {
   res.status(200).json(list);
 });
 
+app.get('/login', async (req, res) => {
+  const users = await usersFunc();
+  // console.log(req.params['email']);
+  const result = users.filter(elem => elem.email === req.query['email']);
+  if(result.length === 0){
+    res.status(200).json({
+      "status": "no user"
+    });
+  }else{
+    res.status(200).json({
+      "status": "success",
+      "id": result[0]['id'],
+      "name": result[0]['name'],
+      "email": result[0]['email'],
+      "major": result[0]['major'],
+      "cred_level": result[0]['cred_level'],
+      "profile_url": result[0]['profile_url']
+    });
+  }
+});
+
 app.post('/register', (req, res) => {
   register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['cred_level'], req.body['profile_url']);
   res.status(200).json({
