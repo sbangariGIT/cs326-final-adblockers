@@ -291,3 +291,8 @@ A brief and precise representation of APIs for you application:
 <br>5.Wrote search algorithm to search for study groups based on code and class.
 
 3. Adithya Kethu (akethu):
+<br>1.Updated the profile.html and group_page.html to have the UI elements render via js.
+<br>2. Made fetch calls, express calls for getting list of all groups/notifiications and display them in profile.html and group_page.html.
+<br>3. Made dynamic JS components which render pages based on group info or user info.
+<br>4. Set up local storage and modify the JSON file dynamically based on user or group info.
+<br>5. Sends a notification and adds user to group based on user info dynamically.
