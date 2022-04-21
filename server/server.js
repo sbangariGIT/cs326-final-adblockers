@@ -1,6 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
+import e from 'express';
 
 const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
@@ -99,6 +100,24 @@ async function deleteNotis(emailId, given_id) {
   });
 }
 
+async function sendNotification(data, user_email) {
+  let users = await usersFunc();
+  for(let i = 0; i < users.length; i++) {
+    let element = users[i];
+    console.log(user_email);
+    if(element.email === user_email) {
+      console.log(element.email);
+      if(element.hasOwnProperty('notification')) {
+        element['notification'].push(data);
+      }
+      else {
+        element['notification'] = [data];
+      }
+      writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
+    }
+  }
+}
+
 const app = express();
 const port = 3000;
 
@@ -133,6 +152,21 @@ app.get('/getAllGroup', async (req,res) => {
 app.post('/register', (req, res) => {
   register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['cred_level'], req.body['profile_url']);
   res.status(200).json({
+    "status": "success"
+  });
+});
+
+app.post('/sendNoti', (request, response) => {
+  const options = request.body;
+  const data = {
+    "message": `${options.message}`,
+    "sent_by_id": `${options.sent_by_id}`,
+    "group_name": `${options.group_name}`,
+    "id": `${options.id}`
+  };
+  sendNotification(data, options.user_email);
+  addUserToGroup(options.user_email)
+  response.status(200).json({
     "status": "success"
   });
 });
