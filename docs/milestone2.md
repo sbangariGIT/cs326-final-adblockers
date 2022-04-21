@@ -316,4 +316,4 @@ After joining a group sendNoti triggers Notification that you have joined a grou
 <br>4. Set up local storage and modify the JSON file dynamically based on user or group info.
 <br>5. Sends a notification and adds user to group based on user info dynamically.
 <br>6. Filters/modifies JSON file based on flow of data.
-<br>7. Deletes/adds users to groups or notifications to users when a user joins a group (by using localStorage). 
+<br>7. Deletes/adds users to groups.json file or notifications to users.json when a user joins a group (by using localStorage). 
