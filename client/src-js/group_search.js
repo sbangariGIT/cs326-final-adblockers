@@ -1,8 +1,5 @@
 const ls = window.localStorage;
 
-const host = window.location.hostname;
-console.log(host);
-
 const dummy_data = await getAllGroup();
 
 document.getElementById('log-out-button').addEventListener('click', () => {
@@ -10,7 +7,7 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 async function getAllGroup() {
-    const response = await fetch( host + `/getAllGroup`, {
+    const response = await fetch(`/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();
@@ -64,7 +61,7 @@ function load_data(){
 }
 
 async function sendNotification(data) {
-  await fetch(`window.location.hostname/sendNoti`, {
+  await fetch(`/sendNoti`, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {'Content-Type': 'application/json'}
