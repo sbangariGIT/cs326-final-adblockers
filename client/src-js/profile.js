@@ -223,7 +223,7 @@ async function displayGroups() {
         const td2 = document.createElement('td');
         td2.appendChild(document.createTextNode(obj.name));
         const td3 = document.createElement('td');
-        td3.appendChild(document.createTextNode(obj._class));
+        td3.appendChild(document.createTextNode(obj['class']));
         const td4 = document.createElement('td');
         td4.innerHTML = `<a href=${obj.url} class="search_button">Enter</a>`;
         tr.appendChild(td1);
