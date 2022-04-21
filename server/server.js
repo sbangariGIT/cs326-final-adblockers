@@ -10,7 +10,7 @@ function readTheFile(path) {
   return async () => {
     try {
       const file = await readFile(path, 'utf8');
-      const data = JSON.parse(scoreFile);
+      const data = JSON.parse(file);
       return data;
     } catch (error) {
       // Likely the file doesn't exist
@@ -22,6 +22,12 @@ function readTheFile(path) {
 // Create functions for reading from files.
 const usersFunc = readTheFile(USERS_FILE);
 const groupsFunc = readTheFile(GROUPS_FILE);
+
+
+async function getAllGroup(){
+  const groups = await groupsFunc();
+  return groups;
+}
 
 // Returns a function that will save a user to the user file.
 function saveToUserFile(path) {
@@ -78,18 +84,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/client', express.static('client'));
 
-app.get('myNotis', async (request, response) => {
-  console.log('here');
+app.get('/myNotis', async (request, response) => {
   const options = request.query;
   const arr = await getMyNotis(options.email);
   response.status(200).json(arr);
 });
 
-app.delete('deleteNoti', async (request, response) => {
-  console.log('here');
+app.delete('/deleteNoti', async (request, response) => {
   const options = request.body;
   const arr = await getMyNotis(options.sent_by_id);
   response.status(200).json(arr);
+});
+
+app.get('/getAllGroup', async (req,res) => {
+  const list = await getAllGroup();
+  res.status(200).json(list);
 });
 
 app.listen(port, () => {
