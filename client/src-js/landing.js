@@ -272,7 +272,7 @@ function search(){
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
-            table.appendChild(tr)
+            table.appendChild(tr);
           });
     }else{
         const class_name = document.getElementById("name_of_class").value.trim();
@@ -302,10 +302,16 @@ function search(){
   }
 
 async function register_a_user(){
+  ls.clear();
   const name = document.getElementById("sign_up_name").value;
   const major = document.getElementById("sign_up_major").value;
   const credit = document.getElementById("sign_up_cred_level").value;
   const email = document.getElementById("sign_up_email").value;
+  ls.setItem('name', name);
+  ls.setItem('major', major);
+  ls.setItem('cred_level', credit);
+  ls.setItem('email', email);
+  ls.setItem('id', 30);
   const new_user = {
     id: 30,
     email: email,
