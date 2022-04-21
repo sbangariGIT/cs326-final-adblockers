@@ -34,3 +34,7 @@ function add_invites(e){
 
 invite_button.addEventListener('click', add_invites);
 
+
+/*-----------------------------------------------------------------
+    CRUD OPERATIONS
+-----------------------------------------------------------------*/
