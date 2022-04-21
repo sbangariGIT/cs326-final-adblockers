@@ -2,6 +2,10 @@ const ls = window.localStorage;
 
 const myGroupsTableElement = document.getElementById('my-groups');
 
+document.getElementById('log-out-button').addEventListener('click', () => {
+    ls.clear();
+});
+
 const myGroupsArray2 = [{
     "group_id": "0913",
     "class": "CS-58",

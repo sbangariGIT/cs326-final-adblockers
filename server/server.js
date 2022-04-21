@@ -68,7 +68,6 @@ async function getMyGroups(emailId) {
   let result = [];
   groups.forEach(element => {
     let members = element.members.filter(mem => mem.email === emailId);
-    console.log(members);
     if(members.length > 0) {
       result.push(element);
     }
@@ -94,7 +93,6 @@ async function deleteNotis(emailId, given_id) {
     if(element.hasOwnProperty("notification") && element.email === emailId) {
 
       element.notification = element['notification'].filter(message => message['id'] !== given_id);
-      console.log(element.notification);
       // writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
   });
@@ -104,9 +102,7 @@ async function sendNotification(data, user_email) {
   let users = await usersFunc();
   for(let i = 0; i < users.length; i++) {
     let element = users[i];
-    console.log(user_email);
     if(element.email === user_email) {
-      console.log(element.email);
       if(element.hasOwnProperty('notification')) {
         element['notification'].push(data);
       }
@@ -114,6 +110,17 @@ async function sendNotification(data, user_email) {
         element['notification'] = [data];
       }
       writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
+    }
+  }
+}
+
+async function addUserToGroup(data, group_name) {
+  let groups = await groupsFunc();
+  for(let i = 0; i < groups.length; i++) {
+    let element = groups[i];
+    if(element.name === group_name) {
+      element['members'].push(data);
+      writeFile(GROUPS_FILE, JSON.stringify(groups), 'utf8');
     }
   }
 }
@@ -183,10 +190,17 @@ app.post('/sendNoti', (request, response) => {
     "message": `${options.message}`,
     "sent_by_id": `${options.sent_by_id}`,
     "group_name": `${options.group_name}`,
-    "id": `${options.id}`
+    "id": `${options.noti_id}`
+  };
+  const user = {
+    "id": `${options.user_id}`,
+    "email": `${options.user_email}`,
+    "name": `${options.name}`,
+    "cred_level": `${options.cred_level}`
   };
   sendNotification(data, options.user_email);
-  addUserToGroup(options.user_email)
+  console.log(user);
+  addUserToGroup(user, options.group_name);
   response.status(200).json({
     "status": "success"
   });

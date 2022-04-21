@@ -1,3 +1,9 @@
+const ls = window.localStorage;
+
+document.getElementById('log-out-button').addEventListener('click', () => {
+    ls.clear();
+});
+
 async function createGroup() {
     const data = {
         sent_by_id: id
