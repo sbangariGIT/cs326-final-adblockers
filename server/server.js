@@ -23,6 +23,12 @@ function readTheFile(path) {
 const usersFunc = readTheFile(USERS_FILE);
 const groupsFunc = readTheFile(GROUPS_FILE);
 
+
+async function getAllGroup(){
+  const groups = await groupsFunc();
+  return groups;
+}
+
 // Returns a function that will save a user to the user file.
 function saveToUserFile(path) {
   return async (id, email, name, major, cred_level, profile_url) => {
@@ -98,6 +104,7 @@ app.get('/myNotis', async (request, response) => {
   response.status(200).json(arr);
 });
 
+<<<<<<< HEAD
 app.get('/myGroups', async (request, response) => {
   const options = request.query;
   const arr = await getMyGroups(options.email);
@@ -110,6 +117,17 @@ app.delete('/deleteNoti', async (request, response) => {
   response.status(200).json({
     status: "successful"
   });
+=======
+app.delete('/deleteNoti', async (request, response) => {
+  const options = request.body;
+  const arr = await getMyNotis(options.sent_by_id);
+  response.status(200).json(arr);
+});
+
+app.get('/getAllGroup', async (req,res) => {
+  const list = await getAllGroup();
+  res.status(200).json(list);
+>>>>>>> 7d3f4786967799725cdf3c784821916013d4667f
 });
 
 app.listen(port, () => {

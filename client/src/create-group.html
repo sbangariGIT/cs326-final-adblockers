@@ -14,6 +14,7 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script type="module" src="../src-js/create_group.js"></script>
     <title>StudyBuddy</title>
 </head>
 <div class="wrapper">
@@ -59,33 +60,36 @@
         <h1 id="head">Create a Group</h1>
         <div class="grid">
             <div class="cgroup_item item_label">Group Name: </div>
-            <div class="cgroup_item"><input type="text" id="g-name" size="50"></div>
+            <div class="cgroup_item"><input type="text" id="g-name" size="50" placeholder="Best Group"></div>
 
             <div class="cgroup_item item_label">Class: </div>
-            <div class="cgroup_item"><input type="text" id="g-name" size="50"></div>
+            <div class="cgroup_item"><input type="text" id="c-name" size="50" placeholder="Best Class"></div>
 
-            <div class="cgroup_item item_label">Type: </div>
+            <!-- <div class="cgroup_item item_label">Type: </div>
             <div class="cgroup_item"> 
                 <input type="radio" id="public" name="g_type" value="public">
                 <label for="public">Public</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" id="css" name="g_type" value="private">
                 <label for="private">Private</label>
-            </div>
+            </div> -->
 
             <div class="cgroup_item item_label">Size: </div>
-            <div class="cgroup_item"><input type="text" id="g-name" size="50">   (max size 50)*</div>
+            <div class="cgroup_item"><input type="number" id="c-size" min="2" max="20" value=5>   (max size 20)*</div>
         </div>
         <br>
         <br>
 
-        <h5 id="invite_text"> Invite to join :</h5> 
-        <div id= "invite_people"style="display: flex; flex-direction: column; justify-content: center; justify-items: center;">
+        <div>
+            <h5 id="invite_text"> Invite :</h5> <p>(Enter comma separated email-ids)</p>
+        </div>
+        <p id ="invited"></p>
+        <div id= "invite_people">
             <input type="text" id="add_id">
             <button id="invite_button">Invite+</button>
         </div>
-        <div id="create_button">
-            <a id="create_group" href="group_page.html">Create</a>
+        <div id="create_div">
+            <button type="button" id="create_button"><a id="create_group" href="group_page.html">Create</a></button>
         </div>
 
     </div>

@@ -12,7 +12,7 @@ A brief and precise representation of APIs for you application:
 
     **Example Request Body**:
       ```json
-      { "id": 1}
+      { "email": "wcalcott0@soup.io" }
       ```
 
     **Example Response** (200 OK status code):
@@ -93,7 +93,7 @@ A brief and precise representation of APIs for you application:
 
     **Example Request Body**:
       ```json
-      { "id": 2}
+      { "email": "wcalcott0@soup.io" }
       ```
 
     **Example Response** (200 OK status code):
