@@ -12,7 +12,7 @@
     "name": "Bytecard",
     "major": "Support",
     "cred_level": "Junior",
-    "profile_url": "https://robohash.org/utsintconsequatur.png?size=50x50&set=set1",
+    "profile_url": "../images/pika.png",
     "notification": [
         {
             "message": "Wants to join the group",

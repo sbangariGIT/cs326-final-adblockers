@@ -104,7 +104,6 @@ app.get('/myNotis', async (request, response) => {
   response.status(200).json(arr);
 });
 
-<<<<<<< HEAD
 app.get('/myGroups', async (request, response) => {
   const options = request.query;
   const arr = await getMyGroups(options.email);
@@ -114,20 +113,12 @@ app.get('/myGroups', async (request, response) => {
 app.delete('/deleteNoti', async (request, response) => {
   const options = request.body;
   await deleteNotis(options.email, options.id);
-  response.status(200).json({
-    status: "successful"
-  });
-=======
-app.delete('/deleteNoti', async (request, response) => {
-  const options = request.body;
-  const arr = await getMyNotis(options.sent_by_id);
-  response.status(200).json(arr);
+  response.status(200).json( { status: "successful" })
 });
 
 app.get('/getAllGroup', async (req,res) => {
   const list = await getAllGroup();
   res.status(200).json(list);
->>>>>>> 7d3f4786967799725cdf3c784821916013d4667f
 });
 
 app.listen(port, () => {
