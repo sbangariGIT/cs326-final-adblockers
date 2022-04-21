@@ -293,7 +293,12 @@ After joining a group sendNoti triggers Notification that you have joined a grou
 ## Team Overview ##
 
 1. Anurag Gumidelli (Anurag-Gumidelli):
-
+<br>1. Added express routes and morgan integration to the server.js file
+<br>2. Reviewed and fixed search functionality in group_search.js and landing.js
+<br>3. Edited UI view of profile.html and edit_profile.html
+<br>4. Deployed Project on Heroku and edited all code to work on heroku, updated port and cleaned the fetch requests.
+<br>5. Added create_group.js invite function to load and send invites to people added in the invite list.
+<br>6. Added API calls for create_group.html
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>1.Updated the index.html and group_search.html to have the UI elements render via js.
