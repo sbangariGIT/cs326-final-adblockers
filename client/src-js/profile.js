@@ -254,7 +254,7 @@ async function displayNotifications () {
         method: 'GET'
     });
     const myNotificationsArray = await response.json();
-    console.log(myNotificationsArray);
+
     myNotificationsTableElement.innerHTML = `
         <tr>
             <th scope="col">Notification</th>
@@ -265,7 +265,7 @@ async function displayNotifications () {
         const td1 = document.createElement('td');
         td1.appendChild(document.createTextNode(obj.message));
         const td2 = document.createElement('td');
-        td2.innerHTML = `<button class="btn btn-danger" id="deleteNoti${obj.id}">X</button>`;
+        td2.innerHTML = `<a class="btn btn-danger" id="deleteNoti${obj.id}">X</a>`;
         tr.appendChild(td1);
         tr.appendChild(td2);
         myNotificationsTableElement.appendChild(tr)
