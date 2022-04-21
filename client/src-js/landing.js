@@ -2,9 +2,7 @@ const dummy_data = await getAllGroup();
 
 
 async function getAllGroup() {
-    const host = window.location.hostname;
-    console.log(host + 'here');
-    const response = await fetch(  host + `/getAllGroup`, {
+    const response = await fetch(`/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();
@@ -139,9 +137,7 @@ async function register_a_user(){
 }
 
 async function put_user(new_user){
-  const host = window.location.hostname;
-  console.log(host + 'here');
-  const response = await fetch( host  + `/register`, {
+  const response = await fetch(`/register`, {
     method: 'POST',
     body: JSON.stringify(new_user),
     headers: {
@@ -170,9 +166,7 @@ login.addEventListener('click', async () => {
 });
 
 async function check_user(new_user){
-  const host = window.location.hostname;
-  console.log(host + 'here');
-  const response = await fetch( host + `/login?email=${new_user}`, {
+  const response = await fetch(`/login?email=${new_user}`, {
     method: 'GET',
   });
   const data = await response.json();
