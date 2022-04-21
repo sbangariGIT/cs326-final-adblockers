@@ -1,5 +1,15 @@
 const ls = window.localStorage;
 
+const pName = document.getElementById('p-name');
+const major = document.getElementById('p-major');
+const year = document.getElementById('p-year');
+
+function loadProfile(){
+    pName.innerText = ls.getItem('name');
+    major.innerText = ls.getItem('major');
+    year.innerText = ls.getItem('cred_level')
+}
+
 const myGroupsTableElement = document.getElementById('my-groups');
 
 document.getElementById('log-out-button').addEventListener('click', () => {
@@ -36,8 +46,6 @@ async function displayGroups() {
         myGroupsTableElement.appendChild(tr)
     });
 };
-
-window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
 
@@ -77,4 +85,11 @@ async function deleteNoti(id) {
     displayNotifications();
 };
 
-window.onload = displayNotifications();
+
+function load(){
+    displayNotifications();
+    loadProfile();
+    displayGroups();
+}
+
+window.onload = load;

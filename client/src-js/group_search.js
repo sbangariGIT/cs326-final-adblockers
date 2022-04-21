@@ -20,43 +20,48 @@ const table = document.getElementById("all_groups");
 load_data();
 
 function load_data(){
-    table.innerHTML = `
-    <tr>
-        <th scope="col">Class Name </th>
-        <th scope="col">Group Name </th>
-        <th scope="col">Group Code </th>
-        <th scope="col"></th>
-    </tr>   
-    `
+  const eID = ls.getItem("email");
+  table.innerText = "";
+  table.innerHTML = `
+  <tr>
+      <th scope="col">Class Name </th>
+      <th scope="col">Group Name </th>
+      <th scope="col">Group Code </th>
+      <th scope="col"></th>
+  </tr>   
+  `
   dummy_data.forEach(element => {
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    td1.appendChild(document.createTextNode(element.class));
-    const td2 = document.createElement('td');
-    td2.appendChild(document.createTextNode(element.name));
-    const td3 = document.createElement('td');
-    td3.appendChild(document.createTextNode(element.group_id));
-    const td4 = document.createElement('td');
-    td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    table.appendChild(tr)
-    document.getElementById(`group_join${element.group_id}`).addEventListener('click', () => {
-      const data = {
-        "message": `${ls.getItem('email')} has joined the group ${element.name}`,
-        "sent_by_id": 2,
-        "group_name": `${element.name}`,
-        "noti_id": Math.floor(Math.random() * 1000),
-        "user_email": ls.getItem('email'),
-        "name": ls.getItem('name'),
-        "cred_level": ls.getItem('cred_level'),
-        "user_id": ls.getItem('id')
-      }
-      sendNotification(data);
-      alert(`You have joined the group ${element.name}. Check your profile for more details.`);
-    });
+    if(element.members.filter(e => e.email === eID).length === 0){
+      const tr = document.createElement('tr');
+      const td1 = document.createElement('td');
+      td1.appendChild(document.createTextNode(element.class));
+      const td2 = document.createElement('td');
+      td2.appendChild(document.createTextNode(element.name));
+      const td3 = document.createElement('td');
+      td3.appendChild(document.createTextNode(element.group_id));
+      const td4 = document.createElement('td');
+      td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      table.appendChild(tr)
+      document.getElementById(`group_join${element.group_id}`).addEventListener('click', () => {
+        const data = {
+          "message": `${ls.getItem('email')} has joined the group ${element.name}`,
+          "sent_by_id": 2,
+          "group_name": `${element.name}`,
+          "noti_id": Math.floor(Math.random() * 1000),
+          "user_email": ls.getItem('email'),
+          "name": ls.getItem('name'),
+          "cred_level": ls.getItem('cred_level'),
+          "user_id": ls.getItem('id')
+        }
+        load_data();
+        sendNotification(data);
+        alert(`You have joined the group ${element.name}. Check your profile for more details.`);
+      });
+    }
   });
 }
 
@@ -122,5 +127,6 @@ function search(){
         }else{
             alert("No match");
         }
-    }
+      }
+      load_data();
   }

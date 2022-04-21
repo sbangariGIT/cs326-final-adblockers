@@ -58,8 +58,21 @@ function saveToGroupFile(path) {
   };
 }
 
-function checkForMember(key, value, userId) {
+async function updateProfile(email, name, major, cred_level){
+  const users = await usersFunc();
+  for(let i =0; i < users.length; i++){
+    if(users[i].email === email){
+      console.log(users[i]);
+      users[i].name = name;
+      users[i].major = major;
+      users[i].cred_level = cred_level;
+      console.log(users[i]);
+      console.log(users);
+      break;
+    }
 
+  }
+  writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
 }
 
 async function getMyGroups(emailId) {
@@ -184,7 +197,7 @@ app.get('/login', async (req, res) => {
   }
 });
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
   register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['cred_level'], req.body['profile_url']);
   res.status(200).json({
     "status": "success"
@@ -212,6 +225,17 @@ app.post('/sendNoti', (request, response) => {
     "status": "success"
   });
 });
+
+app.post('/updateProfile', async (request, response) => {
+  const options = request.query;
+  await updateProfile(options.email, options.name, options.major, options.cred_level);
+
+  response.status(200).json({
+    "status": "success"
+  });
+});
+
+
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
