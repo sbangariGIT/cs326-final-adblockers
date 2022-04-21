@@ -143,7 +143,12 @@ app.get('/login', async (req, res) => {
     });
   }else{
     res.status(200).json({
-      "status": "success"
+      "status": "success",
+      "id": result[0]['id'],
+      "email": result[0]['email'],
+      "major": result[0]['major'],
+      "cred_level": result[0]['cred_level'],
+      "profile_url": result[0]['profile_url']
     });
   }
 });
