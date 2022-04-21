@@ -82,9 +82,8 @@ async function deleteNotis(emailId, given_id) {
   let users = await usersFunc();
   users.forEach(element => {
     if(element.hasOwnProperty("notification") && element.email === emailId) {
-      let dict = element.notification;
-      console.log(dict['id']);
-      element.notification = element.notification.filter(message => message.id === given_id);
+
+      element.notification = element['notification'].filter(message => message['id'] !== given_id);
       console.log(element.notification);
       // writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
