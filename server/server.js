@@ -19,10 +19,19 @@ function readTheFile(path) {
   };
 }
 
+function saveToUsersFile(path) {
+  return async (id, email, name, major, cred_level, profile_url) => {
+    const data = {id, email, name, major, cred_level, profile_url};
+    const scores = await usersFunc();
+    scores.push(data);
+    writeFile(path, JSON.stringify(scores), 'utf8');
+  };
+}
 // Create functions for reading from files.
 const usersFunc = readTheFile(USERS_FILE);
 const groupsFunc = readTheFile(GROUPS_FILE);
 
+const register_user = saveToUsersFile(USERS_FILE);
 
 async function getAllGroup(){
   const groups = await groupsFunc();
@@ -120,6 +129,13 @@ app.delete('/deleteNoti', async (request, response) => {
 app.get('/getAllGroup', async (req,res) => {
   const list = await getAllGroup();
   res.status(200).json(list);
+});
+
+app.post('/register', (req, res) => {
+  register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['cred_level'], req.body['profile_url']);
+  res.status(200).json({
+    "status": "success"
+  });
 });
 
 app.listen(port, () => {

@@ -19,10 +19,7 @@ login.addEventListener('click', () => {
   ls.setItem('email', email_value);
 });
 
-register.addEventListener('click', () => {
-  const email_value = document.getElementById('email-value').value.trim();
-  ls.setItem('email', email_value);
-});
+register.addEventListener('click', register_a_user);
 
 // const dummy_data = [{
 //     "group_id": "0913",
@@ -303,3 +300,38 @@ function search(){
         }
     }
   }
+
+async function register_a_user(){
+  const name = document.getElementById("sign_up_name").value;
+  const major = document.getElementById("sign_up_major").value;
+  const credit = document.getElementById("sign_up_cred_level").value;
+  const email = document.getElementById("sign_up_email").value;
+  const new_user = {
+    id: 30,
+    email: email,
+    name: name,
+    major: major,
+    cred_level: credit,
+    profile_url: " "
+  }
+  let data = await put_user(new_user);
+  if(data["status"] === "success"){
+    ls.setItem('email', email);
+    window.location.href = "profile.html";
+  }else{
+    alert("Error to register! For testing use:")
+  }
+}
+
+async function put_user(new_user){
+  const response = await fetch(`http://localhost:3000/register`, {
+    method: 'POST',
+    body: JSON.stringify(new_user),
+    headers: {
+    'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
