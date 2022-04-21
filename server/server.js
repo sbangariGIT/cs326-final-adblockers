@@ -88,13 +88,21 @@ async function getMyNotis(emailId) {
 
 async function deleteNotis(emailId, given_id) {
   let users = await usersFunc();
-  users.forEach(element => {
-    if(element.hasOwnProperty("notification") && element.email === emailId) {
-
-      element.notification = element['notification'].filter(message => message['id'] !== given_id);
-      // writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
+  for(let i = 0; i < users.length; i++) {
+    let element = users[i];
+    if(element.hasOwnProperty('notification') && element.email === emailId) {
+      let notifications = element.notification;
+      let updatedNotis = [];
+      for(let j = 0; j < notifications.length; j++) {
+        let noti = notifications[j];
+        if(noti['id'].toString() !== given_id) {
+          updatedNotis.push(noti);
+        }
+      }
+      element['notification'] = updatedNotis;
+      writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
-  });
+  }
 }
 
 async function sendNotification(data, user_email) {
