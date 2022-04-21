@@ -1,7 +1,6 @@
 import express from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
-import e from 'express';
 
 const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
@@ -119,7 +118,7 @@ async function sendNotification(data, user_email) {
 }
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
