@@ -48,7 +48,7 @@ function load_data(){
         "message": `${ls.getItem('email')} has joined the group ${element.name}`,
         "sent_by_id": 2,
         "group_name": `${element.name}`,
-        "noti_id": 3,
+        "noti_id": Math.floor(Math.random() * 1000),
         "user_email": ls.getItem('email'),
         "name": ls.getItem('name'),
         "cred_level": ls.getItem('cred_level'),

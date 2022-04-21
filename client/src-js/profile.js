@@ -41,21 +41,6 @@ window.onload = displayGroups();
 
 const myNotificationsTableElement = document.getElementById('my-notis');
 
-const myNotificationsArray2 = [
-    {
-        "message": "Matibura joined the group",
-        "sent_by_id": 1,
-        "group_name": "Trippledex",
-        "id": 2
-    },
-    {
-        "message": "Trudermax sent you a message",
-        "sent_by_id": 2,
-        "group_name": "Trippledex",
-        "id": 3
-    }
-];
-
 async function displayNotifications () {
     const response = await fetch(`/myNotis?email=${ls.getItem('email')}`, {
         method: 'GET'
