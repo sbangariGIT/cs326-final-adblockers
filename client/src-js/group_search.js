@@ -7,7 +7,7 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 async function getAllGroup() {
-    const response = await fetch(`http://localhost:3000/getAllGroup`, {
+    const response = await fetch(`/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();

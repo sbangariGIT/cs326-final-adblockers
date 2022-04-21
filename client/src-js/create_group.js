@@ -8,7 +8,7 @@ async function createGroup() {
     const data = {
         sent_by_id: id
     };
-    await fetch(`deleteNoti?sent_by_id=${id}`, {
+    await fetch(`/deleteNoti?sent_by_id=${id}`, {
         method: 'DELETE',
         body: JSON.stringify(data)
     });

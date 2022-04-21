@@ -1,6 +1,3 @@
-You will be creating a Markdown file called milestone2.md in the docs folder of your github repository. It should contain:
-
-A brief and precise representation of APIs for you application:
 ## API Breif ##
 
 1. **GET /myGroups**
@@ -8,7 +5,7 @@ A brief and precise representation of APIs for you application:
 
     **Example Request**:
 
-      [http://localhost:3000/myGroups](http://localhost:3000/myGroups)
+      [http://localhost:3000/myGroups/?email=${ls.getItem('email')](http://localhost:3000/myGroups?email=${ls.getItem('email'))
 
     **Example Request Body**:
       ```json
@@ -89,12 +86,8 @@ A brief and precise representation of APIs for you application:
 
     **Example Request**:
 
-      [http://localhost:3000/myNotis](http://localhost:3000/myNotis)
+      [http://localhost:3000/myNotis?email=${ls.getItem('email')](http://localhost:3000/myNotis?email=${ls.getItem('email'))
 
-    **Example Request Body**:
-      ```json
-      { "email": "wcalcott0@soup.io" }
-      ```
 
     **Example Response** (200 OK status code):
 
@@ -270,18 +263,42 @@ A brief and precise representation of APIs for you application:
 
 
 ## Heroku URL ##
-
+https://cs-326-studdybuddy.herokuapp.com/client/src/
 
 
 ## Photo ##
-![picture alt](../client/images/milestone2/homescreen.png "homescreen")
+![picture alt](../images/milestone2/homescreen.png "homescreen")
+
+Using get to get all the groups to display on the home screen
 
 
+![picture alt](../images/milestone2/loginScreen.png "loginscreen")
 
+Using get login api to check if the user exists if they do they log into the application
+
+
+![picture alt](../images/milestone2/sign_up.png "signupscreen")
+
+Using post register to send in all the data and register a new user, then it takes you into the application
+
+![picture alt](../images/milestone2/mygroups.png "mygroups")
+
+Using getNoti for getting coresponding notifications of the user. Get my groups from the user id and get all the groups from the chat. 
+
+
+![picture alt](../images/milestone2/join.png "mygroups")
+
+After joining a group sendNoti triggers Notification that you have joined a group
 
 ## Team Overview ##
 
 1. Anurag Gumidelli (Anurag-Gumidelli):
+<br>1. Added express routes and morgan integration to the server.js file
+<br>2. Reviewed and fixed search functionality in group_search.js and landing.js
+<br>3. Edited UI view of profile.html and edit_profile.html
+<br>4. Deployed Project on Heroku and edited all code to work on heroku, updated port and cleaned the fetch requests.
+<br>5. Added create_group.js invite function to load and send invites to people added in the invite list.
+<br>6. Added API calls for create_group.html
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>1.Updated the index.html and group_search.html to have the UI elements render via js.
@@ -289,10 +306,16 @@ A brief and precise representation of APIs for you application:
 <br>3. Made dummy data for groups and users so that we can use them to test our Apis.
 <br>4. Wrote the markdown file for the project milestone-2.
 <br>5.Wrote search algorithm to search for study groups based on code and class.
+<br>6.Login Page and API for checking if the user already exists.
+<br>7.Sign UP Page and API for POSTing a new user into the database.
 
 3. Adithya Kethu (akethu):
+<<<<<<< HEAD
 <br>1.Updated the profile.html and group_page.html to have the UI elements render via js.
 <br>2. Made fetch calls, express calls for getting list of all groups/notifiications and display them in profile.html and group_page.html.
 <br>3. Made dynamic JS components which render pages based on group info or user info.
 <br>4. Set up local storage and modify the JSON file dynamically based on user or group info.
 <br>5. Sends a notification and adds user to group based on user info dynamically.
+=======
+
+>>>>>>> e8318ad72cdef708374e50973771f5a05ea95a83
