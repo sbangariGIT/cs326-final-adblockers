@@ -15,6 +15,7 @@ window.onload = async () => {
     myGroupsArray.forEach((obj) => {
         if (obj._id.toString() === group_id) {
             document.getElementById('name_of_group').innerHTML = obj.name;
+            document.getElementById('loc_and_time').innerHTML = 'Meeting details: ' + obj.loc_and_time;
             grouparray = obj.members; 
         }
     });
