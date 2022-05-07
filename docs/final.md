@@ -19,6 +19,41 @@ The application also lets you leave and join at your own convenience making the 
 
 #### API's ####
 
+1. Landing Page
+
+<br>This page is the first page that the user sees. Here we have the list of all the study groups and you have opition to navigate to login and sign up. This uses the get command to fetch all the groups 
+![picture alt](../images/milestone3/final_landing.png "Landing Page")
+
+2. Login Page
+
+<br>This is where you can login using email and password, if the email does not exist you will get a message saying create an account otherwise, or if the password is incorrect the message would be incorrect password. We store the authentication creditials in our database.
+
+![picture alt](../images/milestone3/final_login.png "loginscreen")
+
+3. Sign Up Page
+
+<br>This is where you can Sign using email and password and other information. You will be redirected to the create page.
+
+![picture alt](../images/milestone3/final_register.png "Register Screen")
+
+4. Profile Page
+
+<br>This is the profile page where the current users details are in here. We have all the groups a user is part of, his notifications and information. We can dismiss the notifications which triggers delete in our database
+
+![picture alt](../images/milestone3/final_profile.png "Register Screen")
+
+5. Create Group Page
+
+<br>This is where you can create a group. This will make a group in our database.
+
+![picture alt](../images/milestone3/final_create.png "Register Screen")
+
+6. Join Group Page
+
+<br>This is where you can join a group from. This will trigger notification to the user indicating that you joined the group. The groups which you are already part of would not be displayed in this list
+
+![picture alt](../images/milestone3/final_search.png "Register Screen")
+
 #### Database ####
 We used noSQL database: MongoDB atlas. Here we have two major collections <b>Users</b> and <b>Groups</b>.
 
