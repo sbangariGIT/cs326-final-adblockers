@@ -10,7 +10,7 @@ async function createGroup(className, groupName, type, meet_details,size) {
         body: JSON.stringify(
             {   class: className, 
                 name: groupName, 
-                members: [{ email: ls.getItem("email"), name: ls.getItem("name"), cred_level: ls.getItem("cred_level") }],
+                members: [{ email: ls.getItem("email"), name: ls.getItem("name"), cred_level: ls.getItem("cred_level") }, ],
                 loc_and_time: meet_details,
                 type: type,
                 size: size                

@@ -38,9 +38,6 @@ console.log(uri)
       } catch (error){
         console.error(error);
       }
-
-
-
     }
 
     function saveToUsersFile(path) {
@@ -107,20 +104,25 @@ console.log(uri)
     }
 
     async function updateProfile(email, name, major, cred_level){
-      const users = await usersFunc();
-      for(let i =0; i < users.length; i++){
-        if(users[i].email === email){
-          console.log(users[i]);
-          users[i].name = name;
-          users[i].major = major;
-          users[i].cred_level = cred_level;
-          console.log(users[i]);
-          console.log(users);
-          break;
-        }
+      
+      const client  = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+      try {
+        await client.connect();
+        console.log(email);
+        const col = await client.db('cs326-final').collection('users').find({email:email}).toArray();
+        const user = col[0];
+        // const user = await col.find({email:email});
+        // const user = u[0];
+        // console.log(user.toArray());
+
+        
+
+        return col;
+
+      } catch (error){
+        console.error(error);
       }
-      writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
 
     async function getMyGroups(emailId) {
