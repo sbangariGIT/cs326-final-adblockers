@@ -110,15 +110,7 @@ console.log(uri)
       try {
         await client.connect();
         console.log(email);
-        const col = await client.db('cs326-final').collection('users').find({email:email}).toArray();
-        const user = col[0];
-        // const user = await col.find({email:email});
-        // const user = u[0];
-        // console.log(user.toArray());
-
-        
-
-        return col;
+        const col = await client.db('cs326-final').collection('users').updateOne({email, email}, {$set: {name: name, major:major, cred_level: cred_level }});
 
       } catch (error){
         console.error(error);

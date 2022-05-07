@@ -20,13 +20,15 @@ function loadProfile(){
 async function putProfile(){
   console.log('sent');
   console.log(file.value);
-  await fetch(`/updateProfile?email=${ls.getItem('email')}&name=${pName.value}&major=${major.value}&cred_level=${year.value}`, {
-    method: 'POST'
-  });
 
   ls.setItem('name', pName.value);
   ls.setItem('major', major.value);
   ls.setItem('cred_level', year.value);
+
+  await fetch(`/updateProfile?email=${ls.getItem('email')}&name=${pName.value}&major=${major.value}&cred_level=${year.value}`, {
+    method: 'POST'
+  });
+  
 
 
 }
