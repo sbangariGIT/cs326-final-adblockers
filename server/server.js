@@ -15,12 +15,14 @@ function readTheFile(path) {
   return async () => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
     try {
-      client.connect();
-      const result = await client.db('cs326-final').collection(path).find({});
+      await client.connect();
+      console.log(path);
+      const result = await client.db('cs326-final').collection(path).find({}).toArray();
+      console.log(result);
       return result;
     } catch (error) {
       // Likely the file doesn't exist
-      console.error(e);
+      console.error(error);
     } finally {
       client.close();
     }
@@ -32,7 +34,8 @@ function saveToUsersFile(path) {
   return async (id, email, name, major, cred_level, profile_url) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
     try {
-      client.connect();
+      await client.connect();
+      console.log('I am here');
       const data = {id, email, name, major, cred_level, profile_url};
       const result = await client.db('cs326-final').collection(path).insertOne(data);
       console.log(`Document ${result.insertedId} has been inserted!`);
@@ -198,6 +201,7 @@ app.get('/login', async (req, res) => {
       "status": "no user"
     });
   }else{
+    console.log(result);
     res.status(200).json({
       "status": "success",
       "id": result[0]['id'],
