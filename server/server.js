@@ -109,27 +109,51 @@ console.log(uri)
     }
 
     async function getMyGroups(emailId) {
-      const groups = await groupsFunc();
-      let result = [];
-      groups.forEach(element => {
-        let members = element.members.filter(mem => mem.email === emailId);
-        if(members.length > 0) {
-          result.push(element);
-        }
-      });
-      return result;
+      // const groups = await groupsFunc();
+      // let result = [];
+      // groups.forEach(element => {
+      //   let members = element.members.filter(mem => mem.email === emailId);
+      //   if(members.length > 0) {
+      //     result.push(element);
+      //   }
+      // });
+      // return result;
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+      try {
+        await client.connect();
+        let myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
+        return myGroups;
+      } catch(e) {
+        console.error(e);
+      } finally {
+        client.close();
+      }
+      return [];
     }
 
     async function getMyNotis(emailId) {
-      const users = await usersFunc();
-      let result = [];
-      users.forEach(element => {
-        if(element.hasOwnProperty("notification") && element.email == emailId) {
-          result = element.notification;
-        }
-      });
+      // const users = await usersFunc();
+      // let result = [];
+      // users.forEach(element => {
+      //   if(element.hasOwnProperty("notification") && element.email == emailId) {
+      //     result = element.notification;
+      //   }
+      // });
       
-      return result;
+      // return result;
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+      try {
+        await client.connect();
+        let notis = await client.db('cs326-final').collection('users').find({ 'email': emailId }).toArray();
+        console.log("hello" + JSON.stringify(notis[0].notifications));
+        let notifis = notis[0].notifications;
+        return notifis;
+      } catch(e) {
+        console.error(e);
+      } finally {
+        client.close();
+      }
+      return [];
     }
 
     async function deleteNotis(emailId, given_id) {
@@ -152,37 +176,28 @@ console.log(uri)
     }
 
     async function sendNotification(data, user_email) {
-      let users = await usersFunc();
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-      // for(let i = 0; i < users.length; i++) {
-      //   let element = users[i];
-      //   if(element.email === user_email) {
-      //     if(element.hasOwnProperty('notification')) {
-      //       element['notification'].push(data);
-      //     }
-      //     else {
-      //       element['notification'] = [data];
-      //     }
-          try {
-            await client.connect();
-            client.db('cs326-final').collection('users').updateOne(
-              { email: user_email }, 
-              {
-                "$set": {
-                  "notifications": {
-                    "message": "zruncieman1@live.com has joined the group Transcof",
-                    "group_name":"Transcof",
-                    "id":"3"
-                  }
-                }
-              }
-            )
-          } catch(e) {
-            console.error(e);
-          } finally {
-            client.close();
+      try {
+        await client.connect();
+        let notis = await client.db('cs326-final').collection('users').find({ 'email': user_email }).toArray();
+        console.log("hello" + JSON.stringify(notis[0].notifications));
+        let notifis = notis[0].notifications;
+        notifis.push(data);
+        console.log(notifis);
+        await client.db('cs326-final').collection('users').updateOne(
+          { email: user_email }, 
+          {
+            "$set": {
+              "notifications": notifis
+            }
           }
-        } 
+        )
+      } catch(e) {
+        console.error(e);
+      } finally {
+        client.close();
+      }
+    } 
     //   }
     // }
 
@@ -191,14 +206,13 @@ console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
       try {
         await client.connect();
-        console.log(`${data} ${group_name}`);
-        const result = client.db('cs326-final').collection('groups').updateOne(
+        const result = await client.db('cs326-final').collection('groups').updateOne(
           { name: group_name },
           {"$set": {
-            "member": data
+            "members": data
           }}
         );
-        console.log(`${result.insertedId} has been updated with new user.`)
+        console.log(`${result.upsertedId} has been updated with new user.`)
       } catch(e) {
         console.error(e);
       } finally {
