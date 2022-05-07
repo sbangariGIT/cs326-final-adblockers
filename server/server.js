@@ -1,37 +1,54 @@
 import express from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://akethu:hoTyUU3dS9DPJAPT@cluster0.sgat2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
 
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
 // Returns a function that will read a score file.
 function readTheFile(path) {
   return async () => {
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
     try {
-      const file = await readFile(path, 'utf8');
-      const data = JSON.parse(file);
-      return data;
+      client.connect();
+      const result = await client.db('cs326-final').collection(path).find({});
+      return result;
     } catch (error) {
       // Likely the file doesn't exist
-      return [];
+      console.error(e);
+    } finally {
+      client.close();
     }
+    return [];
   };
 }
 
 function saveToUsersFile(path) {
   return async (id, email, name, major, cred_level, profile_url) => {
-    const data = {id, email, name, major, cred_level, profile_url};
-    const scores = await usersFunc();
-    scores.push(data);
-    writeFile(path, JSON.stringify(scores), 'utf8');
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    try {
+      client.connect();
+      const data = {id, email, name, major, cred_level, profile_url};
+      const result = await client.db('cs326-final').collection(path).insertOne(data);
+      console.log(`Document ${result.insertedId} has been inserted!`);
+    } catch(e) {
+      console.error(e);
+    } finally {
+      client.close();
+    }
   };
 }
 // Create functions for reading from files.
-const usersFunc = readTheFile(USERS_FILE);
-const groupsFunc = readTheFile(GROUPS_FILE);
+const usersFunc = readTheFile('users');
+const groupsFunc = readTheFile('groups');
 
-const register_user = saveToUsersFile(USERS_FILE);
+const register_user = saveToUsersFile('users');
+const register_group = saveToUsersFile('groups');
 
 async function getAllGroup(){
   const groups = await groupsFunc();
@@ -42,9 +59,7 @@ async function getAllGroup(){
 function saveToUserFile(path) {
   return async (id, email, name, major, cred_level, profile_url) => {
     const data = { id, email, name, major, cred_level, profile_url };
-    const users = await usersFunc();
-    users.push(data);
-    writeFile(path, JSON.stringify(users), 'utf8');
+    register_user(data);
   };
 }
 
@@ -52,9 +67,7 @@ function saveToUserFile(path) {
 function saveToGroupFile(path) {
   return async (group_id, _class, name, members, type, max) => {
     const data = { group_id, _class, name, members, type, max };
-    const groups = await groupsFunc();
-    groups.push(data);
-    writeFile(path, JSON.stringify(groups), 'utf8');
+    register_group(data);
   };
 }
 
