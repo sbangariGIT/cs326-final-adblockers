@@ -42,7 +42,7 @@ function load_data(){
     const td2 = document.createElement('td');
     td2.appendChild(document.createTextNode(element.name));
     const td3 = document.createElement('td');
-    td3.appendChild(document.createTextNode(element.group_id));
+    td3.appendChild(document.createTextNode(element._id));
     const td4 = document.createElement('td');
     td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
     tr.appendChild(td1);
@@ -62,7 +62,7 @@ clear_button.addEventListener("click", load_data);
 
 function search(){
     const group_code = document.getElementById("group_code").value.trim();
-    let res = dummy_data.filter(elem => elem.group_id === group_code);
+    let res = dummy_data.filter(elem => elem._id === group_code);
     console.log(res);
     if( res.length !== 0 ){
         table.innerHTML = '';
@@ -73,7 +73,7 @@ function search(){
             const td2 = document.createElement('td');
             td2.appendChild(document.createTextNode(element.name));
             const td3 = document.createElement('td');
-            td3.appendChild(document.createTextNode(element.group_id));
+            td3.appendChild(document.createTextNode(element._id));
             const td4 = document.createElement('td');
             td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
             tr.appendChild(td1);
@@ -94,7 +94,7 @@ function search(){
                 const td2 = document.createElement('td');
                 td2.appendChild(document.createTextNode(element.name));
                 const td3 = document.createElement('td');
-                td3.appendChild(document.createTextNode(element.group_id));
+                td3.appendChild(document.createTextNode(element._id));
                 const td4 = document.createElement('td');
                 td4.innerHTML = `<button class="search_button" data-toggle="modal" data-target="#signUpModalLabel">Join</button>`;
                 tr.appendChild(td1);
