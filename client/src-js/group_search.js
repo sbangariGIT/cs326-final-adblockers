@@ -1,6 +1,6 @@
 const ls = window.localStorage;
 
-const dummy_data = await getAllGroup();
+const group_data = await getAllGroup();
 
 document.getElementById('log-out-button').addEventListener('click', () => {
   ls.clear();
@@ -30,7 +30,7 @@ function load_data(){
       <th scope="col"></th>
   </tr>   
   `
-  dummy_data.forEach(element => {
+  group_data.forEach(element => {
     if(element.members.filter(e => e.email === eID).length === 0){
       const tr = document.createElement('tr');
       const td1 = document.createElement('td');
@@ -83,8 +83,7 @@ clear_button.addEventListener("click", load_data);
 
 function search(){
     const group_code = document.getElementById("group_code").value.trim();
-    let res = dummy_data.filter(elem => elem._id === group_code);
-    console.log(res);
+    let res = group_data.filter(elem => elem._id === group_code);
     if( res.length !== 0 ){
         table.innerHTML = '';
         res.forEach(element => {
@@ -105,7 +104,7 @@ function search(){
           });
     }else{
         const class_name = document.getElementById("name_of_class").value.trim();
-        res = dummy_data.filter(elem => elem.class === class_name);
+        res = group_data.filter(elem => elem.class === class_name);
         if(res.length !== 0){
             table.innerHTML = '';
             res.forEach(element => {

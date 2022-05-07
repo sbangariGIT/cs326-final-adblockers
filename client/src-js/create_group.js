@@ -45,10 +45,7 @@ function render_invite() {
 }
 
 function add_invites(e) {
-    console.log("hell");
-    console.log(invite_names.value);
     const invite = invite_names.value.split(',');
-    console.log(invite);
     for (let i = 0; i < invite.length; i++) {
         const c_word = invite[i].trim().toLowerCase();
 
@@ -56,9 +53,7 @@ function add_invites(e) {
             invites.push(c_word);
         }
     }
-    console.log(invites);
     render_invite();
-
 }
 
 invite_button.addEventListener('click', add_invites);

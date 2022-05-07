@@ -19,8 +19,6 @@ window.onload = async () => {
             grouparray = obj.members; 
         }
     });
-    console.log('groupsss' + myGroupsArray);
-    console.log(grouparray);
     document.getElementById('group_page_members').innerHTML = `
     <tr>
         <th scope="col">Name</th>

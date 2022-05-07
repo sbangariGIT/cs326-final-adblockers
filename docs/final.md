@@ -16,8 +16,68 @@ The application also lets you leave and join at your own convenience making the 
 
 #### User Interface ####
 
+1. Landing Page
+
+<br>This page is the first page that the user sees. Here we have the list of all the study groups and you have opition to navigate to login and sign up. This uses the get command to fetch all the groups 
+![picture alt](../images/milestone3/final_landing.png "Landing Page")
+
+2. Login Page
+
+<br>This is where you can login using email and password, if the email does not exist you will get a message saying create an account otherwise, or if the password is incorrect the message would be incorrect password. We store the authentication creditials in our database.
+
+![picture alt](../images/milestone3/final_login.png "loginscreen")
+
+3. Sign Up Page
+
+<br>This is where you can Sign using email and password and other information. You will be redirected to the create page.
+
+![picture alt](../images/milestone3/final_register.png "Register Screen")
+
+4. Profile Page
+
+<br>This is the profile page where the current users details are in here. We have all the groups a user is part of, his notifications and information. We can dismiss the notifications which triggers delete in our database
+
+![picture alt](../images/milestone3/final_profile.png "Profile Page")
+
+5. Create Group Page
+
+<br>This is where you can create a group. This will make a group in our database.
+
+![picture alt](../images/milestone3/final_create.png "Create Group Page")
+
+6. Join Group Page
+
+<br>This is where you can join a group from. This will trigger notification to the user indicating that you joined the group. The groups which you are already part of would not be displayed in this list
+
+![picture alt](../images/milestone3/final_search.png "Join Group Page")
+
+7. Edit Profile Page
+
+<br>This the page where you can update users information. This page calls functions to update the database.
+
+![picture alt](../images/milestone3/final_editprof.png "Edit Profile Page")
+
+8. Group Page
+
+<br>This the page for each individual group page. This page loads all the details of a group and lets you leave the group.
+
+![picture alt](../images/milestone3/final_editprof.png "Edit Profile Page")
 
 #### API's ####
+Here is the list of the API's we use
+
+| Type of CRUD | Name of the API | Functionality                                                                                   |
+|--------------|-----------------|-------------------------------------------------------------------------------------------------|
+| CREATE       | /register       | This takes in all the required information for registering and adds<br>the user to the database |
+| CREATE       | /createGroup    | This takes in all the group information and creates and new group for<br>a particular class     |
+| READ         | /myGroups       | This API returns the list of groups of a particular user which they <br>are part of.            |
+| READ         | /getAllGroups   | This API returns the list of all groups present in our system                                   |
+| READ         | /getmyNotis     | This API return all the current notifications a user has.                                       |
+| UPDATE       | /updateProfile  | This API updates the in information of a user.                                                  |
+| DELETE       | /deleteNoti     | This function removes the notification after the user deletes it.                               |
+| DELETE       | /exitGroup      | This API function removes a user from a certain group given its id.                             |
+
+A detailed utilization of the above are described in URL rounting and mapping.
 
 #### Database ####
 We used noSQL database: MongoDB atlas. Here we have two major collections <b>Users</b> and <b>Groups</b>.
@@ -50,7 +110,7 @@ We used noSQL database: MongoDB atlas. Here we have two major collections <b>Use
 
     **Example Request**:
 
-      [http://localhost:3000/myGroups/?email=${ls.getItem('email')](http://localhost:3000/myGroups?email=${ls.getItem('email'))
+      [http://localhost:3000/myGroups/?email=${'email'](http://localhost:3000/myGroups?email=$'email')
 
     **Example Request Body**:
       ```json
@@ -131,7 +191,7 @@ We used noSQL database: MongoDB atlas. Here we have two major collections <b>Use
 
     **Example Request**:
 
-      [http://localhost:3000/myNotis?email=${ls.getItem('email')](http://localhost:3000/myNotis?email=${ls.getItem('email'))
+      [http://localhost:3000/myNotis?email=${email)](http://localhost:3000/myNotis?email=${email))
 
 
     **Example Response** (200 OK status code):
@@ -314,7 +374,21 @@ We used noSQL database: MongoDB atlas. Here we have two major collections <b>Use
         "status": "no user"
       }
 
+9. **DELETE /deletenoti**
 
+      This dismisses and deletes the notification of a user given the user Id.
+
+      **Example Request**:
+
+      [http://localhost:3000//deleteNoti?email=${email}&id=${id}](/deleteNoti?email=${email}&id=${id})
+
+      **Example Response** (200 OK status code):
+
+      ```json
+      {
+        "status": "success"
+      }
+      
 #### Authentication/Authorization ####
 
 Login Authenitcation:
@@ -330,7 +404,24 @@ Hence teven if you copy past a browser url from one browser to another we check 
 
 
 2. Sai Rohan Bangari (sbangariGIT):
-<br>1. Points
+<br>Milestone 1
+<br>1. Collaborated in the design of the backend by making the schemas for the documents and collection.
+<br>2. Made the prototype images in the Figma for all the pages to make the wireframes.
+<br>3. Documented the teams progress in the md files
+<br>Milestone 2
+<br>1.Updated the index.html and group_search.html to have the UI elements render via js.
+<br>2. Made fetch calls, express calls for getting list of all groups and display them in index.html and group_search.html.
+<br>3. Made dummy data for groups and users so that we can use them to test our Apis.
+<br>4. Wrote the markdown file for the project milestone-2.
+<br>5.Wrote search algorithm to search for study groups based on code and class.
+<br>6.Login Page and API for checking if the user already exists.
+<br>7.Sign UP Page and API for POSTing a new user into the database.
+<br>Milestone 3
+<br>1. Worked on changing the login/SignUp from writing in JSON to mongoDB.
+<br>2. Added authentication so that the username and password are stored and verified before the user enters the application.
+<br>3. Edited the schema to better fit our needs for the user and Groups.
+<br>4. Articulated the list of API's, UI, Overview and Overall experience. (Wrote the finals.md file which you are reading :) )
+<br>5. Peer programmed with another teammate and worked on bug fixing of authentication and notifications.
 
 3. Adithya Kethu (akethu):
 <br>1. Points

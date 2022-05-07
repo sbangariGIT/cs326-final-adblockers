@@ -9,8 +9,6 @@ async function getAllGroup() {
 }
 
 const ls = window.localStorage;
-
-
 const login = document.getElementById('login-button');
 const register = document.getElementById('register-button');
 
@@ -108,7 +106,7 @@ async function register_a_user(){
 
   const name = document.getElementById("sign_up_name").value;
   const major = document.getElementById("sign_up_major").value;
-  const credit = document.getElementById("sign_up_cred_level").value;
+  const credit = document.getElementById("p-year").value;
   const email = document.getElementById("sign_up_email").value;
   const password = document.getElementById("sign_up_password").value;
   console.log(credit);
