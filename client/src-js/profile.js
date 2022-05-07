@@ -60,7 +60,7 @@ async function displayNotifications () {
     const myNotificationsArray = await response.json();
 
     //myNotificationsArray = [];
-
+    console.log(myNotificationsArray);
     myNotificationsTableElement.innerHTML = `
         <tr>
             <th scope="col">Notification</th>

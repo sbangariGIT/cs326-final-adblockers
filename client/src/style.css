@@ -252,8 +252,9 @@ a.article:hover {
 ----------------------------------------------------- */
 
 #group_bio {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 10px;
+
+    display: flex;
+    align-items: center;
 }
 
 #head{
@@ -362,4 +363,11 @@ p{
     justify-items: center;
 }
 
+#loc_and_time{
+    
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+
+}
 
