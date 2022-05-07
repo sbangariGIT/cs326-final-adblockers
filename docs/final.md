@@ -225,7 +225,6 @@ members: array of notification (Type: Array)
       {
         "status": "success"
       }
-       ```
 6. **GET /getAllGroup**
 
       This endpoint get the list of all groups
@@ -279,7 +278,6 @@ members: array of notification (Type: Array)
     "type": "public",
     "max": 10
   }]
-   ```
 
 7. **GET /login**
 
@@ -301,12 +299,10 @@ members: array of notification (Type: Array)
       "cred_level": "cred_level",
       "profile_url": "profile_url"
       }
-       ```
        ```json
       {
         "status": "no user"
       }
-       ```
 
 
 #### Authentication/Authorization ####
