@@ -137,9 +137,10 @@ console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
       try {
         await client.connect();
+        let grps =  await client.db('cs326-final').collection('groups').find({ 'members.email': emailId } ).toArray();
         const myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
-        console.log(JSON.stringify(myGroups));
-        return myGroups;
+        console.log(JSON.stringify(grps));
+        return grps;
       } catch(e) {
         console.error(e);
       } finally {
@@ -197,7 +198,7 @@ console.log(uri)
       try {
         await client.connect();
         let notis = await client.db('cs326-final').collection('users').find({ 'email': user_email }).toArray();
-        let notifis = notis[0].notifications;
+        let notifis = notis.notifications;
         notifis.push(data);
         await client.db('cs326-final').collection('users').updateOne(
           { email: user_email }, 
