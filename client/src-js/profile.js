@@ -93,9 +93,9 @@ async function deleteNoti(id) {
 
 
 function load(){
-    //displayNotifications();
+    displayNotifications();
     loadProfile();
-    //displayGroups();
+    displayGroups();
 }
 
 window.onload = load;

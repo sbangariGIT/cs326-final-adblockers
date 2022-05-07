@@ -58,7 +58,7 @@ function load_data(){
           "user_id": ls.getItem('id')
         }
         // load_data();
-        await sendNotification(data);
+        sendNotification(data);
         alert(`You have joined the group ${element.name}. Check your profile for more details.`);
       });
     }
