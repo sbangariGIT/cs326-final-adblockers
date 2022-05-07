@@ -32,7 +32,7 @@ async function displayGroups() {
     myGroupsArray.forEach((obj) => {
         const tr = document.createElement('tr');
         const td1 = document.createElement('td');
-        td1.appendChild(document.createTextNode(obj.group_id));
+        td1.appendChild(document.createTextNode(obj._id.toString()));
         const td2 = document.createElement('td');
         td2.appendChild(document.createTextNode(obj.name));
         const td3 = document.createElement('td');
