@@ -41,3 +41,17 @@ window.onload = async () => {
         document.getElementById('group_page_members').appendChild(tr)
     });
 }
+
+
+document.getElementById('exit').addEventListener('click', async ()=> {
+
+    await fetch(`/exitGroup?email=${ls.getItem('email')}&id=${ls.getItem('group_id')}`,{
+        method: 'DELETE',
+    });
+
+    ls.removeItem('group_id');
+
+    window.location.href = "profile.html";
+
+});
+

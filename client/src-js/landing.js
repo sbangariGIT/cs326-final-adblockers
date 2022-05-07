@@ -1,6 +1,5 @@
 const dummy_data = await getAllGroup();
 
-//const dummy_data = [];
 async function getAllGroup() {
     const response = await fetch(`/getAllGroup`, {
       method: 'GET',
@@ -11,16 +10,11 @@ async function getAllGroup() {
 
 const ls = window.localStorage;
 
-// document.getElementById('log-out-button').addEventListener('click', () => {
-//   ls.clear();
-// });
 
 const login = document.getElementById('login-button');
 const register = document.getElementById('register-button');
 
 
-
-register.addEventListener('click', register_a_user);
 const table = document.getElementById("all_groups");
 
 load_data();
@@ -111,11 +105,13 @@ function search(){
 
 async function register_a_user(){
   ls.clear();
+
   const name = document.getElementById("sign_up_name").value;
   const major = document.getElementById("sign_up_major").value;
   const credit = document.getElementById("sign_up_cred_level").value;
   const email = document.getElementById("sign_up_email").value;
   const password = document.getElementById("sign_up_password").value;
+  console.log(credit);
   const new_user = {
     id: (100000 + Math.floor(Math.random() * 900000)),
     email: email,
@@ -170,6 +166,8 @@ login.addEventListener('click', async () => {
     alert("Please create an account!");
   }
 });
+
+register.addEventListener('click', register_a_user);
 
 async function check_user(email_value, password){
   const response = await fetch(`/login?email=${email_value}&password=${password}`, {

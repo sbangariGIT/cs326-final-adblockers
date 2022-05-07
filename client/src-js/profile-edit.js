@@ -28,9 +28,6 @@ async function putProfile(){
   await fetch(`/updateProfile?email=${ls.getItem('email')}&name=${pName.value}&major=${major.value}&cred_level=${year.value}`, {
     method: 'POST'
   });
-  
-
-
 }
 
 save.addEventListener('click', putProfile);
