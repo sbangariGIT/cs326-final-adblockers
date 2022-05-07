@@ -71,6 +71,7 @@ console.log(uri)
 
     async function getAllGroup(){
       const groups = await groupsFunc();
+      console.log(groups);
       return groups;
     }
 
