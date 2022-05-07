@@ -1,13 +1,13 @@
-//const dummy_data = await getAllGroup();
+const dummy_data = await getAllGroup();
 
-const dummy_data = [];
+//const dummy_data = [];
 async function getAllGroup() {
     const response = await fetch(`/getAllGroup`, {
       method: 'GET',
     });
     const data = await response.json();
     return data;
-  }
+}
 
 const ls = window.localStorage;
 
@@ -26,14 +26,15 @@ const table = document.getElementById("all_groups");
 load_data();
 
 function load_data(){
-    table.innerHTML = `
-    <tr>
-        <th scope="col">Class Name </th>
-        <th scope="col">Group Name </th>
-        <th scope="col">Group Code </th>
-        <th scope="col"></th>
-    </tr>   
-    `
+  table.innerHTML = `
+  <tr>
+      <th scope="col">Class Name </th>
+      <th scope="col">Group Name </th>
+      <th scope="col">Group Code </th>
+      <th scope="col"></th>
+  </tr>   
+  `
+
   dummy_data.forEach(element => {
     const tr = document.createElement('tr');
     const td1 = document.createElement('td');
@@ -50,6 +51,7 @@ function load_data(){
     tr.appendChild(td4);
     table.appendChild(tr)
   });
+  
 }
 const search_button = document.getElementById("search");
 const clear_button = document.getElementById("clear_button");
