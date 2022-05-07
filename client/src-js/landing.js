@@ -127,7 +127,7 @@ async function register_a_user(){
     ls.setItem('email', new_user.email);
     ls.setItem('name', new_user.name);
     ls.setItem('major', new_user.major);
-    ls.setItem('cred_level', new_user.credit);
+    ls.setItem('cred_level', new_user.cred_level);
     ls.setItem('id', new_user.id);
     window.location.href = "profile.html";
   }else{
