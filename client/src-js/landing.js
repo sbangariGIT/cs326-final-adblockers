@@ -1,6 +1,6 @@
-const dummy_data = await getAllGroup();
+//const dummy_data = await getAllGroup();
 
-
+const dummy_data = [];
 async function getAllGroup() {
     const response = await fetch(`/getAllGroup`, {
       method: 'GET',

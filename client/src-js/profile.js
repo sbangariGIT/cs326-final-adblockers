@@ -55,6 +55,8 @@ async function displayNotifications () {
     });
     const myNotificationsArray = await response.json();
 
+    //myNotificationsArray = [];
+
     myNotificationsTableElement.innerHTML = `
         <tr>
             <th scope="col">Notification</th>
@@ -87,9 +89,9 @@ async function deleteNoti(id) {
 
 
 function load(){
-    displayNotifications();
+    //displayNotifications();
     loadProfile();
-    displayGroups();
+    //displayGroups();
 }
 
 window.onload = load;
