@@ -6,24 +6,24 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 
 let group_name;
 window.onload = () => {
-    group_name = ls.getItem('group_name');
-    document.getElementById('name_of_group').innerHTML = group_name;
-    document.getElementById('group_page_members').innerHTML = `
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Level</th>
-    </tr>`;
+    group_id = ls.getItem('group_id');
     const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
         method: 'GET',
     });
     const myGroupsArray = await response.json();
     let grouparray;
     myGroupsArray.forEach((obj) => {
-        if (obj.name === group_name) {
+        if (obj._id.toString() === group_id) {
+            document.getElementById('name_of_group').innerHTML = obj.name;
             grouparray = obj.members; 
         }
     });
+    document.getElementById('group_page_members').innerHTML = `
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Level</th>
+    </tr>`;
     grouparray.forEach((obj) => {
         const tr = document.createElement('tr');
         const td1 = document.createElement('td');

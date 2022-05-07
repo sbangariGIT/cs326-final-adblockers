@@ -38,15 +38,15 @@ async function displayGroups() {
         const td3 = document.createElement('td');
         td3.appendChild(document.createTextNode(obj['class']));
         const td4 = document.createElement('td');
-        td4.innerHTML = `<a href="group_page.html" class="search_button" id="${obj.name}">Enter</a>`;
+        td4.innerHTML = `<a href="group_page.html" class="search_button" id="${obj._id.toString()}">Enter</a>`;
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         myGroupsTableElement.appendChild(tr)
-        document.getElementById(`${obj.name}`).addEventListener('click', () => {
-            ls.removeItem('group_name');
-            ls.setItem('group_name', obj.name);
+        document.getElementById(`${obj._id.toString()}`).addEventListener('click', () => {
+            ls.removeItem('group_id');
+            ls.setItem('group_id', obj._id.toString());
         });
     });
 };
