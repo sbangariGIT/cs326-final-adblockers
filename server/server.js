@@ -198,7 +198,7 @@ console.log(uri)
       try {
         await client.connect();
         let notis = await client.db('cs326-final').collection('users').find({ 'email': user_email }).toArray();
-        let notifis = notis.notifications;
+        let notifis = notis[0].notifications;
         notifis.push(data);
         await client.db('cs326-final').collection('users').updateOne(
           { email: user_email }, 
@@ -319,7 +319,7 @@ console.log(uri)
         "cred_level": `${options.cred_level}`
       };
       sendNotification(data, options.user_email);
-      // console.log(user);
+      console.log("Everything works till here");
       addUserToGroup(user, options.group_name);
       response.status(200).json({
         "status": "success"
