@@ -38,15 +38,15 @@ function load_data(){
       const td2 = document.createElement('td');
       td2.appendChild(document.createTextNode(element.name));
       const td3 = document.createElement('td');
-      td3.appendChild(document.createTextNode(element.group_id));
+      td3.appendChild(document.createTextNode(element._id));
       const td4 = document.createElement('td');
-      td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
+      td4.innerHTML = `<button class="search_button" id="group_join${element._id}">Join</button>`;
       tr.appendChild(td1);
       tr.appendChild(td2);
       tr.appendChild(td3);
       tr.appendChild(td4);
       table.appendChild(tr)
-      document.getElementById(`group_join${element.group_id}`).addEventListener('click', () => {
+      document.getElementById(`group_join${element._id}`).addEventListener('click', () => {
         const data = {
           "message": `${ls.getItem('email')} has joined the group ${element.name}`,
           "sent_by_id": 2,
@@ -83,7 +83,7 @@ clear_button.addEventListener("click", load_data);
 
 function search(){
     const group_code = document.getElementById("group_code").value.trim();
-    let res = dummy_data.filter(elem => elem.group_id === group_code);
+    let res = dummy_data.filter(elem => elem._id === group_code);
     console.log(res);
     if( res.length !== 0 ){
         table.innerHTML = '';
@@ -94,9 +94,9 @@ function search(){
             const td2 = document.createElement('td');
             td2.appendChild(document.createTextNode(element.name));
             const td3 = document.createElement('td');
-            td3.appendChild(document.createTextNode(element.group_id));
+            td3.appendChild(document.createTextNode(element._id));
             const td4 = document.createElement('td');
-            td4.innerHTML = `<button class="search_button" id="group_join${element.group_id}">Join</button>`;
+            td4.innerHTML = `<button class="search_button" id="group_join${element._id}">Join</button>`;
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
@@ -115,7 +115,7 @@ function search(){
                 const td2 = document.createElement('td');
                 td2.appendChild(document.createTextNode(element.name));
                 const td3 = document.createElement('td');
-                td3.appendChild(document.createTextNode(element.group_id));
+                td3.appendChild(document.createTextNode(element._id));
                 const td4 = document.createElement('td');
                 td4.innerHTML = `<button class="search_button">Join</button>`;
                 tr.appendChild(td1);
