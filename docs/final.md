@@ -71,10 +71,10 @@ members: array of notification (Type: Array)
         "name": "Y-find",
         "cred_level": "Freshmen"
       }
-    ],
+        ],
     "type": "public",
     "max": 10
-  }, {
+     }, {
     "group_id": "7713",
     "_class": "OIM-16",
     "name": "Temp",
@@ -85,10 +85,10 @@ members: array of notification (Type: Array)
         "name": "Y-find",
         "cred_level": "Freshmen"
       }
-    ],
+        ],
     "type": "public",
     "max": 10
-  }]
+    }]
       ```
 2. **POST /createGroup**
 
