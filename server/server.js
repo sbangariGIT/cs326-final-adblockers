@@ -182,7 +182,7 @@ console.log(uri)
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(logger('dev'));
-    app.use('/client', express.static('client'));
+    app.use('/', express.static('client'));
 
     app.get('/myNotis', async (request, response) => {
       const options = request.query;
