@@ -187,14 +187,19 @@ console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
       try {
         await client.connect();
-        //let notis = await client.db('cs326-final').collection('users').find({ 'email': emailId }).toArray();
+        let notis = await client.db('cs326-final').collection('users').find({ 'email': emailId }).toArray();
+        let notifis = notis[0].notifications;
+        let updatedNotifis = [];
+        notifis.forEach(element => {
+          if(element.id !== given_id) {
+            updatedNotifis.push(element);
+          }
+        });
         await client.db('cs326-final').collection('users').updateOne(
-          { email: user_email }, 
+          { email: emailId }, 
           {
-            "$pull": {
-              "notifications": {
-                "id": given_id
-              }
+            "$set": {
+              "notifications": updatedNotifis
             }
           }
         )
