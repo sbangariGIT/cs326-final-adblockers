@@ -57,7 +57,7 @@ function load_data(){
           "cred_level": ls.getItem('cred_level'),
           "user_id": ls.getItem('id')
         }
-        load_data();
+        // load_data();
         sendNotification(data);
         alert(`You have joined the group ${element.name}. Check your profile for more details.`);
       });

@@ -3,3 +3,38 @@ const ls = window.localStorage;
 document.getElementById('log-out-button').addEventListener('click', () => {
     ls.clear();
 });
+
+let group_name;
+window.onload = () => {
+    group_name = ls.getItem('group_name');
+    document.getElementById('name_of_group').innerHTML = group_name;
+    document.getElementById('group_page_members').innerHTML = `
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Level</th>
+    </tr>`;
+    const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
+        method: 'GET',
+    });
+    const myGroupsArray = await response.json();
+    let grouparray;
+    myGroupsArray.forEach((obj) => {
+        if (obj.name === group_name) {
+            grouparray = obj.members; 
+        }
+    });
+    grouparray.forEach((obj) => {
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        td1.appendChild(document.createTextNode(obj.name));
+        const td2 = document.createElement('td');
+        td2.appendChild(document.createTextNode(obj.email));
+        const td3 = document.createElement('td');
+        td3.appendChild(document.createTextNode(obj['cred_level']));
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        document.getElementById('group_page_members').appendChild(tr)
+    });
+}
