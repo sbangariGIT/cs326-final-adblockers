@@ -27,6 +27,22 @@ console.log(uri)
       };
     }
 
+    async function userLogin(email){
+      const client  = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+      try {
+        await client.connect();
+        const res = await client.db('cs326-final').collection('users').find({email : email}).toArray();
+        return res;
+
+      } catch (error){
+        console.error(error);
+      }
+
+
+
+    }
+
     function saveToUsersFile(path) {
       return async (id, email, name, major, cred_level, profile_url) => {
         const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -218,13 +234,6 @@ console.log(uri)
       } finally {
         client.close();
       }
-      // for(let i = 0; i < groups.length; i++) {
-      //   let element = groups[i];
-      //   if(element.name === group_name) {
-      //     element['members'].push(data);
-      //     writeFile(GROUPS_FILE, JSON.stringify(groups), 'utf8');
-      //   }
-      // }
     }
 
     const app = express();
@@ -259,23 +268,22 @@ console.log(uri)
     });
 
     app.get('/login', async (req, res) => {
-      const users = await usersFunc();
-      // console.log(req.params['email']);
-      const result = users.filter(elem => elem.email === req.query['email']);
-      if(result.length === 0){
+      const user = await userLogin(req.query['email']);
+      console.log('here');
+      console.log(user);
+      if(user.length === 0){
         res.status(200).json({
           "status": "no user"
         });
       }else{
-        console.log(result);
         res.status(200).json({
           "status": "success",
-          "id": result[0]['id'],
-          "name": result[0]['name'],
-          "email": result[0]['email'],
-          "major": result[0]['major'],
-          "cred_level": result[0]['cred_level'],
-          "profile_url": result[0]['profile_url']
+          "id": user[0]['id'],
+          "name": user[0]['name'],
+          "email": user[0]['email'],
+          "major": user[0]['major '],
+          "cred_level": user[0]['cred_level'],
+          "profile_url": user[0]['profile_url']
         });
       }
     });
@@ -321,7 +329,7 @@ console.log(uri)
     app.post( '/createGroup', async (request, response) => {
       const options = request.body;
       // console.log(options)
-      register_group(options.class, options.name, options.members, options.loc_and_time, options.type, options.size);
+      await register_group(options.class, options.name, options.members, options.loc_and_time, options.type, options.size);
       
       response.status(200).json({
         "status": "success"
