@@ -168,7 +168,7 @@ console.log(uri)
               { email: user_email }, 
               {
                 "$set": {
-                  "notification": {
+                  "notifications": {
                     "message": "zruncieman1@live.com has joined the group Transcof",
                     "group_name":"Transcof",
                     "id":"3"
