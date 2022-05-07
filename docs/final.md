@@ -404,11 +404,26 @@ Hence teven if you copy past a browser url from one browser to another we check 
 
 
 2. Sai Rohan Bangari (sbangariGIT):
-| Phase       | Work Done                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Milestone 1 | 1. Collaborated in the design of the backend by making the schemas for the documents and collection.<br>2. Made the prototype images in the Figma for all the pages to make the wireframes.<br>3. Documented the teams progress in the md files                                                                                                                                                                                                                                                                                                                                       |
-| Milestone 2 | 1.Updated the index.html and group_search.html to have the UI elements render via js.<br>2. Made fetch calls, express calls for getting list of all groups and display them in index.html and group_search.html.<br>3. Made dummy data for groups and users so that we can use them to test our Apis.<br>4. Wrote the markdown file for the project milestone-2.<br>5.Wrote search algorithm to search for study groups based on code and class.<br>6.Login Page and API for checking if the user already exists.<br>7.Sign UP Page and API for POSTing a new user into the database. |
-| Milestone 3 | 1. Worked on changing the login/SignUp from writing in JSON to mongoDB.<br>2. Added authentication so that the username and password are stored and verified before the user enters the application.<br>3. Edited the schema to better fit our needs for the user and Groups.<br>4. Articulated the list of API's, UI, Overview and Overall experience. (Wrote the finals.md file which you are reading :) )<br>5. Peer programmed with another teammate and worked on bug fixing of authentication and notifications.                                                                |
+<br>Milestone 1
+<br>1. Collaborated in the design of the backend by making the schemas for the documents and collection.
+<br>2. Made the prototype images in the Figma for all the pages to make the wireframes.
+<br>3. Documented the teams progress in the md files
+
+<br>Milestone 2
+<br>1.Updated the index.html and group_search.html to have the UI elements render via js.
+<br>2. Made fetch calls, express calls for getting list of all groups and display them in index.html and group_search.html.
+<br>3. Made dummy data for groups and users so that we can use them to test our Apis.
+<br>4. Wrote the markdown file for the project milestone-2.
+<br>5.Wrote search algorithm to search for study groups based on code and class.
+<br>6.Login Page and API for checking if the user already exists.
+<br>7.Sign UP Page and API for POSTing a new user into the database.
+
+<br>Milestone 3
+<br>1. Worked on changing the login/SignUp from writing in JSON to mongoDB.
+<br>2. Added authentication so that the username and password are stored and verified before the user enters the application.
+<br>3. Edited the schema to better fit our needs for the user and Groups.
+<br>4. Articulated the list of API's, UI, Overview and Overall experience. (Wrote the finals.md file which you are reading :) )
+<br>5. Peer programmed with another teammate and worked on bug fixing of authentication and notifications.
 
 3. Adithya Kethu (akethu):
 <br>1. Points
