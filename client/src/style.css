@@ -371,3 +371,11 @@ p{
 
 }
 
+#exit{
+    padding: 3px;
+    margin-top: 25px;
+    border: 2px solid black;
+    color: #fff;
+    background-color: red;
+}
+
