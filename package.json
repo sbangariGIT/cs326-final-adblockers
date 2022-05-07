@@ -23,6 +23,7 @@
   "homepage": "https://github.com/sbangariGIT/cs326-final-adblockers#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "mongodb": "^4.5.0",
     "morgan": "^1.10.0"
   }
 }

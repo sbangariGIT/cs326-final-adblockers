@@ -1,7 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const uri = "mongodb+srv://akethu:hoTyUU3dS9DPJAPT@cluster0.sgat2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
