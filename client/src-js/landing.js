@@ -115,11 +115,13 @@ async function register_a_user(){
   const major = document.getElementById("sign_up_major").value;
   const credit = document.getElementById("sign_up_cred_level").value;
   const email = document.getElementById("sign_up_email").value;
+  const password = document.getElementById("sign_up_password").value;
   const new_user = {
     id: (100000 + Math.floor(Math.random() * 900000)),
     email: email,
     name: name,
     major: major,
+    password: password,
     cred_level: credit,
     profile_url: " "
   }
@@ -152,7 +154,8 @@ async function put_user(new_user){
 
 login.addEventListener('click', async () => {
   const email_value = document.getElementById('email-input').value.trim();
-  const data = await check_user(email_value);
+  const password = document.getElementById('password-input').value;
+  const data = await check_user(email_value, password);
   if(data["status"] === "success"){
     ls.setItem('email', email_value);
     ls.setItem('name', data["name"]);
@@ -161,13 +164,15 @@ login.addEventListener('click', async () => {
     ls.setItem('email', data["email"]);
     ls.setItem('id', data["id"]);
     window.location.href = "profile.html";
+  }else if(data["status"] == "Incorrect Password"){
+    alert("Incorrect Password");
   }else{
     alert("Please create an account!");
   }
 });
 
-async function check_user(new_user){
-  const response = await fetch(`/login?email=${new_user}`, {
+async function check_user(email_value, password){
+  const response = await fetch(`/login?email=${email_value}&password=${password}`, {
     method: 'GET',
   });
   const data = await response.json();

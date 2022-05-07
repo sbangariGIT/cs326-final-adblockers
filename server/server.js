@@ -44,13 +44,13 @@ console.log(uri)
     }
 
     function saveToUsersFile(path) {
-      return async (id, email, name, major, cred_level, profile_url) => {
+      return async (id, email, name, major, password, cred_level, profile_url) => {
         const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
         try {
           await client.connect();
           console.log('I am here');
           let notifications = [];
-          const data = {id, email, name, major, cred_level, profile_url, notifications};
+          const data = {id, email, name, major, password, cred_level, profile_url, notifications};
           const result = await client.db('cs326-final').collection(path).insertOne(data);
           console.log(`Document ${result.insertedId} has been inserted!`);
         } catch(e) {
@@ -279,20 +279,26 @@ console.log(uri)
           "status": "no user"
         });
       }else{
+        if( user[0]['password'] !== req.query['password']){
+          res.status(200).json({
+            "status": "Incorrect Password"
+          });
+        }else{
         res.status(200).json({
           "status": "success",
           "id": user[0]['id'],
           "name": user[0]['name'],
           "email": user[0]['email'],
-          "major": user[0]['major '],
+          "major": user[0]['major'],
           "cred_level": user[0]['cred_level'],
           "profile_url": user[0]['profile_url']
         });
       }
+      }
     });
 
     app.post('/register', async (req, res) => {
-      register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['cred_level'], req.body['profile_url']);
+      register_user(req.body['id'], req.body['email'], req.body['name'], req.body['major'], req.body['password'], req.body['cred_level'], req.body['profile_url']);
       res.status(200).json({
         "status": "success"
       });

@@ -23,25 +23,25 @@ The application also lets you leave and join at your own convenience making the 
 We used noSQL database: MongoDB atlas. Here we have two major collections <b>Users</b> and <b>Groups</b>.
 
 1. Users
-every document contains the following attributes
-_id: Unique Identifier id (Type: Object)
-email:  email of a user (Type: String)
-name: name of the user (Type: String)
-major: major of the user (Type: String)
-cred_level: Freshman | Junior | Senior etc (Type: String)
-profile_url: url of the image (Type: String)
-notifications: array of notification (Type: Array)
-
+<br>every document contains the following attributes
+<br>_id: Unique Identifier id (Type: Object)
+<br>email:  email of a user (Type: String)
+<br>password: password of the user (Type: String)
+<br>name: name of the user (Type: String)
+<br>major: major of the user (Type: String)
+<br>cred_level: Freshman | Junior | Senior etc (Type: String)
+<br>profile_url: url of the image (Type: String)
+<br>notifications: array of notification (Type: Array)
 
 1. Groups
-every document contains the following attributes
-_id: Unique Identifier id (Type: Object)
-class: which class does the group belong (ex: CS 326) (Type: String)
-name: name of the group (Type: String)
-loc_and_time: location and time of meeting (Type: String)
-type: Public | Private
-size: max capacity (Type: Number)
-members: array of notification (Type: Array)
+<br>every document contains the following attributes
+<br>_id: Unique Identifier id (Type: Object)
+<br>class: which class does the group belong (ex: CS 326) (Type: String)
+<br>name: name of the group (Type: String)
+<br>loc_and_time: location and time of meeting (Type: String)
+<br>type: Public | Private
+<br>size: max capacity (Type: Number)
+<br>members: array of notification (Type: Array)
 
 
 #### URL Routes/Mappings ####
@@ -187,6 +187,7 @@ members: array of notification (Type: Array)
         "id": 1,
         "email": "wcalcott0@soup.io",
         "name": "Zontrax",
+        "password": "password",
         "major": "Human Resources",
         "cred_level": "Freshmen",
         "profile_url": "https://robohash.org/voluptatemreprehenderitexcepturi.png?size=50x50&set=set1"
@@ -225,7 +226,7 @@ members: array of notification (Type: Array)
       {
         "status": "success"
       }
-6. **GET /getAllGroup**
+7. **GET /getAllGroup**
 
       This endpoint get the list of all groups
 
@@ -257,7 +258,7 @@ members: array of notification (Type: Array)
     ],
     "type": "public",
     "max": 10
-  }, {
+        }, {
     "_id": "2813",
     "class": "MATH-07",
     "name": "Gembucket",
@@ -277,15 +278,24 @@ members: array of notification (Type: Array)
     ],
     "type": "public",
     "max": 10
-  }]
+        }]
 
-7. **GET /login**
+8. **PUT /login**
 
-      This endpoint get the list of all groups
+      This endpoint is for login
 
       **Example Request**:
 
-      [/login?email=${sample@gmail.com}](/login?email=${sample@gmail.com)
+      [http://localhost:3000//login?email=${email_value}&password=${password}](http://localhost:3000//login?email=${email_value}&password=${password})
+
+      **Example Request Body**:
+
+      ```json
+        {
+        "email": "wcalcott0@soup.io",
+        "password": "sample pass"
+      }
+      ```
 
 
       **Example Response** (200 OK status code):
@@ -308,8 +318,7 @@ members: array of notification (Type: Array)
 #### Authentication/Authorization ####
 
 Login Authenitcation:
-
-
+We are storing the username and password in the database and using that to handle the authentication.
 
 Inside the application:
 While we make sure that you connot see any infromation apart from group names, the functionilty of going into a single group page only opens up if a particular user is part of the group.
@@ -327,4 +336,12 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>1. Points
 
 #### Conclusion ####
-A conclusion describing your team’s experience in working on this project. This should include what you learned through the design and implementation process, the difficulties you encountered, what your team would have liked to know before starting the project that would have helped you later, and any other technical hurdles that your team encountered.
+The experience of building this application was unique in its own way. We had a good number of ups and downs, for some of the team members it was the first time building a full aplications while for some it was the first web application. We did fill a lot of knowledge gaps on how stuff works in the real world and going from an idea to an application. We did have a huge leraning curve in terms of making design choices and pivoting from one design to another to make the application better. Given more time we defenitly think we can add many more features and grow the application.
+
+Design phase: we realized that this was the most important part of the project as we had to lay the foundation of what comes next. Suprisingly enough we realized that this part requires the least code but the most effort. We spend a good chuck of time on whiteboards rather than laptops to plan things out.
+
+Front-End phase: In this phase we learned about prototyping software like figma and started making wireframes, all of the members were not art enthusiasts hence we had a good number of hours of doing work we did not enjoy. But by the end of it we did find some of our creative brain cells working. We did realise the frontend work is a significant job.
+
+Back-End phase: This part was more of implementing what we already planned given that the structure of milestones went hand in hand with homeworks we just had to convert the backend and connect it to the databse. As we already wrote the structure of our collections and documents we had a smooth ride on this one. Couple of errors but stackoverflow and MongoDB documentation came to the rescue. 
+
+To conclude we have a lot more to talk about web programming than what we had before starting the course, we learned a lot from each other and how to better work in a team environment. We acknowledge that this is just the tip of the ice berg in terms of what web programming is but are glad we could lay the foundation. Thank you all for making this happen!
