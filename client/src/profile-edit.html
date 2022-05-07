@@ -14,6 +14,9 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script type="module" src="../src-js/profile-edit.js"></script>
+
     <title>StudyBuddy</title>
 </head>
 <div class="wrapper">
@@ -67,17 +70,17 @@
                     </tr>
                     <tr>
                         <td scope="col">Name: </th>
-                        <td scope="col"> <input class="in_data" type="text" placeholder="no change"> </td>
+                        <td scope="col"> <input id="p-name" class="in_data" type="text"> </td>
                     </tr>
                     <tr>
                         <td scope="col">Major:</th>
-                        <td> <input class="in_data" type="text" placeholder="no change"></td>
+                        <td> <input id="p-major" class="in_data" type="text"></td>
                     </tr>
                     <tr>
-                        <td scope="col">Academic Level
+                        <td scope="col">Academic Year
                             :</th>
                         <td colspan="2"> 
-                            <select name="cred_level" id="cred_level">
+                            <select name="cred_level" id="p-year">
                                 <option value="freshman">Freshman</option>
                                 <option value="sophomore">Sophomore</option>
                                 <option value="junior">Junior</option>
@@ -89,7 +92,7 @@
                 </tbody>
             </table>
         </div>
-        <a id="edit_save" href="profile.html">Save</a>
+        <button id="save" type="button"><a id="edit_save" href="profile.html">Save</a></button>
         
         
     </div>

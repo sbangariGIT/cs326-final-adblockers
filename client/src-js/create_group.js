@@ -9,7 +9,7 @@ async function createGroup() {
         sent_by_id: id
     };
     await fetch(`/deleteNoti?sent_by_id=${id}`, {
-        method: 'DELETE',
+        method: 'POST',
         body: JSON.stringify(data)
     });
     displayNotifications();

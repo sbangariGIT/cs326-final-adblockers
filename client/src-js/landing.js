@@ -114,7 +114,7 @@ async function register_a_user(){
   const credit = document.getElementById("sign_up_cred_level").value;
   const email = document.getElementById("sign_up_email").value;
   const new_user = {
-    id: 30,
+    id: (100000 + Math.floor(Math.random() * 900000)),
     email: email,
     name: name,
     major: major,
@@ -124,12 +124,11 @@ async function register_a_user(){
 
   let data = await put_user(new_user);
   if(data["status"] === "success"){
-    ls.setItem('email', email);
-    ls.setItem('name', name);
-    ls.setItem('major', major);
-    ls.setItem('cred_level', credit);
-    ls.setItem('email', email);
-    ls.setItem('id', 30);
+    ls.setItem('email', new_user.email);
+    ls.setItem('name', new_user.name);
+    ls.setItem('major', new_user.major);
+    ls.setItem('cred_level', new_user.credit);
+    ls.setItem('id', new_user.id);
     window.location.href = "profile.html";
   }else{
     alert("Error to register! For testing use:")
