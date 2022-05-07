@@ -3,7 +3,7 @@ import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-const uri = "mongodb+srv://akethu:hoTyUU3dS9DPJAPT@cluster0.sgat2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.DATABASE_URL;
 
 const GROUPS_FILE = 'groups.json';
 const USERS_FILE = 'users.json';
