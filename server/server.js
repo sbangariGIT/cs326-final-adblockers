@@ -136,7 +136,8 @@ console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
       try {
         await client.connect();
-        let myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
+        const myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
+        console.log(JSON.stringify(myGroups));
         return myGroups;
       } catch(e) {
         console.error(e);
@@ -195,10 +196,8 @@ console.log(uri)
       try {
         await client.connect();
         let notis = await client.db('cs326-final').collection('users').find({ 'email': user_email }).toArray();
-        console.log("hello" + JSON.stringify(notis[0].notifications));
         let notifis = notis[0].notifications;
         notifis.push(data);
-        console.log(notifis);
         await client.db('cs326-final').collection('users').updateOne(
           { email: user_email }, 
           {
@@ -221,10 +220,13 @@ console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
       try {
         await client.connect();
+        let group = await client.db('cs326-final').collection('groups').find({ 'name': group_name }).toArray();
+        let group_members = group[0].members;
+        group_members.push(data);
         const result = await client.db('cs326-final').collection('groups').updateOne(
           { name: group_name },
           {"$set": {
-            "members": data
+            "members": group_members
           }}
         );
         console.log(`${result.upsertedId} has been updated with new user.`)
