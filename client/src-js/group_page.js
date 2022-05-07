@@ -5,8 +5,8 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 let group_name;
-window.onload = () => {
-    group_id = ls.getItem('group_id');
+window.onload = async () => {
+    let group_id = ls.getItem('group_id');
     const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
         method: 'GET',
     });
@@ -18,6 +18,8 @@ window.onload = () => {
             grouparray = obj.members; 
         }
     });
+    console.log('groupsss' + myGroupsArray);
+    console.log(grouparray);
     document.getElementById('group_page_members').innerHTML = `
     <tr>
         <th scope="col">Name</th>
