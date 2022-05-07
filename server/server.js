@@ -38,9 +38,6 @@ console.log(uri)
       } catch (error){
         console.error(error);
       }
-
-
-
     }
 
     function saveToUsersFile(path) {
@@ -87,7 +84,6 @@ console.log(uri)
 
     async function getAllGroup(){
       const groups = await groupsFunc();
-      console.log(groups);
       return groups;
     }
 
@@ -108,20 +104,17 @@ console.log(uri)
     }
 
     async function updateProfile(email, name, major, cred_level){
-      const users = await usersFunc();
-      for(let i =0; i < users.length; i++){
-        if(users[i].email === email){
-          console.log(users[i]);
-          users[i].name = name;
-          users[i].major = major;
-          users[i].cred_level = cred_level;
-          console.log(users[i]);
-          console.log(users);
-          break;
-        }
+      
+      const client  = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+      try {
+        await client.connect();
+        console.log(email);
+        const col = await client.db('cs326-final').collection('users').updateOne({email, email}, {$set: {name: name, major:major, cred_level: cred_level }});
+
+      } catch (error){
+        console.error(error);
       }
-      writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
     }
 
     async function getMyGroups(emailId) {
@@ -338,7 +331,7 @@ console.log(uri)
         "cred_level": `${options.cred_level}`
       };
       sendNotification(data, options.user_email);
-      // console.log(user);
+      console.log("Everything works till here");
       addUserToGroup(user, options.group_name);
       response.status(200).json({
         "status": "success"
