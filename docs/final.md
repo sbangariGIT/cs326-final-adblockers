@@ -1,1 +1,1 @@
-<center> # AD-Blockers </center>
+<p style="text-align: center;"> AD-Blockers </p>
