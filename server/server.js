@@ -15,7 +15,7 @@ console.log(uri)
           await client.connect();
           console.log(path);
           const result = await client.db('cs326-final').collection(path).find({}).toArray();
-          console.log(result);
+          // console.log(result);
           return result;
         } catch (error) {
           // Likely the file doesn't exist
@@ -33,7 +33,8 @@ console.log(uri)
         try {
           await client.connect();
           console.log('I am here');
-          const data = {id, email, name, major, cred_level, profile_url};
+          let notifications = [];
+          const data = {id, email, name, major, cred_level, profile_url, notifications};
           const result = await client.db('cs326-final').collection(path).insertOne(data);
           console.log(`Document ${result.insertedId} has been inserted!`);
         } catch(e) {
@@ -151,29 +152,64 @@ console.log(uri)
 
     async function sendNotification(data, user_email) {
       let users = await usersFunc();
-      for(let i = 0; i < users.length; i++) {
-        let element = users[i];
-        if(element.email === user_email) {
-          if(element.hasOwnProperty('notification')) {
-            element['notification'].push(data);
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+      // for(let i = 0; i < users.length; i++) {
+      //   let element = users[i];
+      //   if(element.email === user_email) {
+      //     if(element.hasOwnProperty('notification')) {
+      //       element['notification'].push(data);
+      //     }
+      //     else {
+      //       element['notification'] = [data];
+      //     }
+          try {
+            await client.connect();
+            client.db('cs326-final').collection('users').updateOne(
+              { email: user_email }, 
+              {
+                "$set": {
+                  "notification": {
+                    "message": "zruncieman1@live.com has joined the group Transcof",
+                    "group_name":"Transcof",
+                    "id":"3"
+                  }
+                }
+              }
+            )
+          } catch(e) {
+            console.error(e);
+          } finally {
+            client.close();
           }
-          else {
-            element['notification'] = [data];
-          }
-          writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
-        }
-      }
-    }
+        } 
+    //   }
+    // }
 
     async function addUserToGroup(data, group_name) {
       let groups = await groupsFunc();
-      for(let i = 0; i < groups.length; i++) {
-        let element = groups[i];
-        if(element.name === group_name) {
-          element['members'].push(data);
-          writeFile(GROUPS_FILE, JSON.stringify(groups), 'utf8');
-        }
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+      try {
+        await client.connect();
+        console.log(`${data} ${group_name}`);
+        const result = client.db('cs326-final').collection('groups').updateOne(
+          { name: group_name },
+          {"$set": {
+            "member": data
+          }}
+        );
+        console.log(`${result.insertedId} has been updated with new user.`)
+      } catch(e) {
+        console.error(e);
+      } finally {
+        client.close();
       }
+      // for(let i = 0; i < groups.length; i++) {
+      //   let element = groups[i];
+      //   if(element.name === group_name) {
+      //     element['members'].push(data);
+      //     writeFile(GROUPS_FILE, JSON.stringify(groups), 'utf8');
+      //   }
+      // }
     }
 
     const app = express();
@@ -251,7 +287,7 @@ console.log(uri)
         "cred_level": `${options.cred_level}`
       };
       sendNotification(data, options.user_email);
-      console.log(user);
+      // console.log(user);
       addUserToGroup(user, options.group_name);
       response.status(200).json({
         "status": "success"
@@ -269,7 +305,7 @@ console.log(uri)
 
     app.post( '/createGroup', async (request, response) => {
       const options = request.body;
-      console.log(options)
+      // console.log(options)
       register_group(options.class, options.name, options.members, options.loc_and_time, options.type, options.size);
       
       response.status(200).json({
