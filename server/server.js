@@ -138,7 +138,7 @@ console.log(uri)
       try {
         await client.connect();
         let grps =  await client.db('cs326-final').collection('groups').find({ 'members.email': emailId } ).toArray();
-        const myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
+        //const myGroups = await client.db('cs326-final').collection('groups').find({ 'members': { 'email': emailId } }).toArray();
         console.log(JSON.stringify(grps));
         return grps;
       } catch(e) {

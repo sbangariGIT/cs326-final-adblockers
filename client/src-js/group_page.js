@@ -5,7 +5,7 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 let group_name;
-window.onload = () => {
+// window.onload = () => {
     group_id = ls.getItem('group_id');
     const response = await fetch(`/myGroups?email=${ls.getItem('email')}`, {
         method: 'GET',
@@ -18,6 +18,8 @@ window.onload = () => {
             grouparray = obj.members; 
         }
     });
+    console.log('groupsss' + myGroupsArray);
+    console.log(grouparray);
     document.getElementById('group_page_members').innerHTML = `
     <tr>
         <th scope="col">Name</th>
@@ -37,4 +39,4 @@ window.onload = () => {
         tr.appendChild(td3);
         document.getElementById('group_page_members').appendChild(tr)
     });
-}
+// }
