@@ -176,20 +176,39 @@ console.log(uri)
 
     async function deleteNotis(emailId, given_id) {
       let users = await usersFunc();
-      for(let i = 0; i < users.length; i++) {
-        let element = users[i];
-        if(element.hasOwnProperty('notification') && element.email === emailId) {
-          let notifications = element.notification;
-          let updatedNotis = [];
-          for(let j = 0; j < notifications.length; j++) {
-            let noti = notifications[j];
-            if(noti['id'].toString() !== given_id) {
-              updatedNotis.push(noti);
+      // for(let i = 0; i < users.length; i++) {
+      //   let element = users[i];
+      //   if(element.hasOwnProperty('notification') && element.email === emailId) {
+      //     let notifications = element.notification;
+      //     let updatedNotis = [];
+      //     for(let j = 0; j < notifications.length; j++) {
+      //       let noti = notifications[j];
+      //       if(noti['id'].toString() !== given_id) {
+      //         updatedNotis.push(noti);
+      //       }
+      //     }
+      //     element['notification'] = updatedNotis;
+      //     writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
+      //   }
+      // }
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+      try {
+        await client.connect();
+        //let notis = await client.db('cs326-final').collection('users').find({ 'email': emailId }).toArray();
+        await client.db('cs326-final').collection('users').updateOne(
+          { email: user_email }, 
+          {
+            "$pull": {
+              "notifications": {
+                "id": given_id
+              }
             }
           }
-          element['notification'] = updatedNotis;
-          writeFile(USERS_FILE, JSON.stringify(users), 'utf8');
-        }
+        )
+      } catch(e) {
+        console.error(e);
+      } finally {
+        client.close();
       }
     }
 
@@ -198,7 +217,7 @@ console.log(uri)
       try {
         await client.connect();
         let notis = await client.db('cs326-final').collection('users').find({ 'email': user_email }).toArray();
-        let notifis = notis.notifications;
+        let notifis = notis[0].notifications;
         notifis.push(data);
         await client.db('cs326-final').collection('users').updateOne(
           { email: user_email }, 
