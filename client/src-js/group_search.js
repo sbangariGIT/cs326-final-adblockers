@@ -58,9 +58,7 @@ function load_data(){
           "user_id": ls.getItem('id')
         }
         sendNotification(data);
-        ls.removeItem('group_id');
-        ls.setItem('group_id', element._id);
-        window.location.href = "group_page.html";
+        window.location.href = "profile.html";
       });
     }
   });
