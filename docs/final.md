@@ -404,6 +404,9 @@ Hence teven if you copy past a browser url from one browser to another we check 
 #### Division of Labor ####
 1. Anurag Gumidelli (Anurag-Gumidelli):
 <br>Milestone 1
+<br>1. Collaborated in the design of the backend by making the schemas for the documents and collection.
+<br>2. Made the prototype images in the Figma for some of the pages to make the wireframes.
+<br>3. Created create_group.html, edit_profile.html and edited profile.html.
 <br>Milestone 2
 <br>1. Added express routes and morgan integration to the server.js file
 <br>2. Reviewed and fixed search functionality in group_search.js and landing.js
@@ -424,7 +427,7 @@ Hence teven if you copy past a browser url from one browser to another we check 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>Milestone 1
 <br>1. Collaborated in the design of the backend by making the schemas for the documents and collection.
-<br>2. Made the prototype images in the Figma for all the pages to make the wireframes.
+<br>2. Made the prototype images in the Figma for most of the pages to make the wireframes.
 <br>3. Documented the teams progress in the md files
 <br>Milestone 2
 <br>1.Updated the index.html and group_search.html to have the UI elements render via js.
