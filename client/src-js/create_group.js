@@ -5,7 +5,7 @@ document.getElementById('log-out-button').addEventListener('click', () => {
 });
 
 async function createGroup(className, groupName, type, meet_details,size) {
-    await fetch(`/createGroup`, {
+    const res = await fetch(`/createGroup`, {
         method: 'POST',
         body: JSON.stringify(
             {   class: className, 
@@ -18,7 +18,7 @@ async function createGroup(className, groupName, type, meet_details,size) {
         ),
         headers: {'Content-Type': 'application/json'}
     });
-    displayNotifications();
+    return res;
 };
 
 /*-----------------------------------------------------------------
@@ -59,7 +59,10 @@ function add_invites(e) {
 invite_button.addEventListener('click', add_invites);
 
 create.addEventListener('click', async(e) => {
-    await createGroup(c_name.value, g_name.value, 'public', meet_time.value, size.value);
+    const res = await createGroup(c_name.value, g_name.value, 'public', meet_time.value, size.value);
+
+    window.location.href = 'profile.html';
+
 });
 
 
