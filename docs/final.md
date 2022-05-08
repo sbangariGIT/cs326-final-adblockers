@@ -407,8 +407,16 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>3. Edited UI view of profile.html and edit_profile.html
 <br>4. Deployed Project on Heroku and edited all code to work on heroku, updated port and cleaned the fetch requests.
 <br>5. Added create_group.js invite function to load and send invites to people added in the invite list.
-<br>6. Added API calls for create_group.html
+<br>6. Added API calls for create_group.html and edit_profile.html
 <br>Milestone 3
+<br>1. Set up and hosted application on Heroku.
+<br>2. Created methods from scratch to facilitate login auth for email.
+<br>3. Implemented exit from group function and created database calls to update the group members.
+<br>4. Implemented create group function and start a new group with the fetched details.
+<br>5. Peer programmed and code reviewed to find and debug notification and login functions.
+<br>6. Cleaned the code base and sanity checked all functions and API calls to make sure usage is not hindered.
+<br>7. Updated database queries to facilitate faster responses.
+
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>Milestone 1
