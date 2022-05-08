@@ -45,6 +45,7 @@ const uri = process.env.DATABASE_URL;
           let notifications = [];
           const data = {id, email, name, major, password, cred_level, profile_url, notifications};
           const result = await client.db('cs326-final').collection(path).insertOne(data);
+          return result;
         } catch(e) {
           console.error(e);
         } finally {
@@ -62,6 +63,7 @@ const uri = process.env.DATABASE_URL;
           await client.connect();
           const data = {class :classid, name, members,loc_and_time,type,size};
           const result = await client.db('cs326-final').collection(path).insertOne(data);
+          return result;
         } catch(e) {
           console.error(e);
         } finally {
@@ -327,10 +329,11 @@ const uri = process.env.DATABASE_URL;
 
     app.post( '/createGroup', async (request, response) => {
       const options = request.body;
-      await register_group(options.class, options.name, options.members, options.loc_and_time, options.type, options.size);
-      
+      let data = await register_group(options.class, options.name, options.members, options.loc_and_time, options.type, options.size);
+
       response.status(200).json({
-        "status": "success"
+        "status": "success",
+        "id" : data.insertedId.toString(),
       });
     });
 
