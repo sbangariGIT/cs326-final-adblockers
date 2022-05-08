@@ -3,6 +3,9 @@
 ## Study Group ##
 ### Spring: 2022 ###
 
+### Application Website ###
+https://cs-326-studdybuddy.herokuapp.com/src/
+
 #### Overview ####
 Our application is a platform for students to find study groups for any of their classes. It allows students to create and join study groups and be part of the discussion. We have started this application from one of the difficulties we faced as freshmen before making our own friend circle. Sometimes your friends do not take the same class as you and it is hard to find the right group to study with. We do have groups on other social media like discord, facebook but what makes us innovative is the ability to get all of them under the same hood so that students do not have to search more for getting any assistance. The application has a very one click register method and you can start joining/creating a required study group. With its easy to use interface you can create a group and specify when and where you plan to meet, if it’s virtual please feel free to drop in the zoom link.
 
@@ -407,8 +410,16 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>3. Edited UI view of profile.html and edit_profile.html
 <br>4. Deployed Project on Heroku and edited all code to work on heroku, updated port and cleaned the fetch requests.
 <br>5. Added create_group.js invite function to load and send invites to people added in the invite list.
-<br>6. Added API calls for create_group.html
+<br>6. Added API calls for create_group.html and edit_profile.html
 <br>Milestone 3
+<br>1. Set up and hosted application on Heroku.
+<br>2. Created methods from scratch to facilitate login auth for email.
+<br>3. Implemented exit from group function and created database calls to update the group members.
+<br>4. Implemented create group function and start a new group with the fetched details.
+<br>5. Peer programmed and code reviewed to find and debug notification and login functions.
+<br>6. Cleaned the code base and sanity checked all functions and API calls to make sure usage is not hindered.
+<br>7. Updated database queries to facilitate faster responses.
+
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>Milestone 1
@@ -452,24 +463,24 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>5. Made the group_page.js to be dynamic — fetched dynamically from the database to update the same HTML page with different components based on which group the user wants to enter.
 <br>6. Implemented ‘$set’ operations to update groups dynamically (particular to the user).
 
-#### Group Grading Rubric ####
+### Group Grading Rubric ###
 We are writing the rubric for 100 points in total.
-Design Phase: 30 Points
+#### Design Phase: 30 Points ####
     1. Making the wireframes: 10 points
     2. Making the HTML & CSS based on the wireframes: 15 points
     3. Planning the Schema for our database: 5 points
-Frontend Phase: 40 Points
+#### Frontend Phase: 40 Points ####
     1.Being able to register and login: 10 points.
     2. Ability to create, search for groups: 10 points.
     3. Heroku deployment: 10 points.
     4. Data is consistant when you log out and log back in: 10 points.
-Backend Phase: 30 points
+#### Backend Phase: 30 points ####
     1. Converting from JSON to MongoDB: 15points.
     2. Notifications being pushed: 5 points.
     3. Ability to exit a group: 5 points.
     4. Change name and other information: 5 points
 
-#### Conclusion ####
+### Conclusion ###
 The experience of building this application was unique in its own way. We had a good number of ups and downs, for some of the team members it was the first time building a full aplications while for some it was the first web application. We did fill a lot of knowledge gaps on how stuff works in the real world and going from an idea to an application. We did have a huge leraning curve in terms of making design choices and pivoting from one design to another to make the application better. Given more time we defenitly think we can add many more features and grow the application.
 
 Design phase: we realized that this was the most important part of the project as we had to lay the foundation of what comes next. Suprisingly enough we realized that this part requires the least code but the most effort. We spend a good chuck of time on whiteboards rather than laptops to plan things out.
