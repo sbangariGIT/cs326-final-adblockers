@@ -64,7 +64,7 @@ The application also lets you leave and join at your own convenience making the 
 
 <br>This the page for each individual group page. This page loads all the details of a group and lets you leave the group.
 
-![picture alt](../images/milestone3/final_editprof.png "Edit Profile Page")
+![picture alt](../images/milestone3/final_groupPage.png "Edit Profile Page")
 
 #### API's ####
 Here is the list of the API's we use
