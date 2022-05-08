@@ -1,6 +1,6 @@
 # AD-Blockers #
 
-## Study Group ##
+## Study Buddy ##
 ### Spring: 2022 ###
 
 ### Application Website ###
