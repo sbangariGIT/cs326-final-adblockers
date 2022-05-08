@@ -400,8 +400,15 @@ Hence teven if you copy past a browser url from one browser to another we check 
 
 #### Division of Labor ####
 1. Anurag Gumidelli (Anurag-Gumidelli):
-<br>1. Points
-
+<br>Milestone 1
+<br>Milestone 2
+<br>1. Added express routes and morgan integration to the server.js file
+<br>2. Reviewed and fixed search functionality in group_search.js and landing.js
+<br>3. Edited UI view of profile.html and edit_profile.html
+<br>4. Deployed Project on Heroku and edited all code to work on heroku, updated port and cleaned the fetch requests.
+<br>5. Added create_group.js invite function to load and send invites to people added in the invite list.
+<br>6. Added API calls for create_group.html
+<br>Milestone 3
 
 2. Sai Rohan Bangari (sbangariGIT):
 <br>Milestone 1
@@ -413,9 +420,9 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>2. Made fetch calls, express calls for getting list of all groups and display them in index.html and group_search.html.
 <br>3. Made dummy data for groups and users so that we can use them to test our Apis.
 <br>4. Wrote the markdown file for the project milestone-2.
-<br>5.Wrote search algorithm to search for study groups based on code and class.
-<br>6.Login Page and API for checking if the user already exists.
-<br>7.Sign UP Page and API for POSTing a new user into the database.
+<br>5. Wrote search algorithm to search for study groups based on code and class.
+<br>6. Login Page and API for checking if the user already exists.
+<br>7. Sign UP Page and API for POSTing a new user into the database.
 <br>Milestone 3
 <br>1. Worked on changing the login/SignUp from writing in JSON to mongoDB.
 <br>2. Added authentication so that the username and password are stored and verified before the user enters the application.
@@ -424,7 +431,26 @@ Hence teven if you copy past a browser url from one browser to another we check 
 <br>5. Peer programmed with another teammate and worked on bug fixing of authentication and notifications.
 
 3. Adithya Kethu (akethu):
-<br>1. Points
+<br>Milestone 1
+<br>1. Set up the dashboard from scratch using HTML and Bootstrap.
+<br>2. Built the code from scratch for the tables and columns inside the dashboard using bootstrap.
+<br>3. Created multiple HTML pages for each wireframe created.
+<br>4. Designed custom CSS for each page to match the design of the wireframe.
+<br>Milestone 2
+<br>1. Updated the profile.html and group_page.html to have the UI elements render via js.
+<br>2. Made fetch calls, express calls for getting list of all groups/notifiications and display them in profile.html and group_page.html.
+<br>3. Made dynamic JS components which render pages based on group info or user info.
+<br>4. Set up local storage and modify the JSON file dynamically based on user or group info.
+<br>5. Sends a notification and adds user to group based on user info dynamically.
+<br>6. Filters/modifies JSON file based on flow of data.
+<br>7. Deletes/adds users to groups.json file or notifications to users.json when a user joins a group (by using localStorage).
+<br>Milestone 3
+<br>1. Set up and integrated the MongoDB Atlas database.
+<br>2. Created methods from scratch to fetch users and groups collections to process data.
+<br>3. Modified methods to work with the database on updating notifications and groups particular to users.
+<br>4. Implemented delete operations for updating notifications particular to users.
+<br>5. Made the group_page.js to be dynamic — fetched dynamically from the database to update the same HTML page with different components based on which group the user wants to enter.
+<br>6. Implemented ‘$set’ operations to update groups dynamically (particular to the user).
 
 #### Group Grading Rubric ####
 We are writing the rubric for 100 points in total.
