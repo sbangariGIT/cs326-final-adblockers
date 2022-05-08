@@ -57,9 +57,10 @@ function load_data(){
           "cred_level": ls.getItem('cred_level'),
           "user_id": ls.getItem('id')
         }
-        // load_data();
         sendNotification(data);
-        alert(`You have joined the group ${element.name}. Check your profile for more details.`);
+        ls.removeItem('group_id');
+        ls.setItem('group_id', element._id);
+        window.location.href = "group_page.html";
       });
     }
   });
