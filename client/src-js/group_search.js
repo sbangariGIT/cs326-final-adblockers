@@ -126,5 +126,4 @@ function search(){
             alert("No match");
         }
       }
-      load_data();
   }
