@@ -426,6 +426,23 @@ Hence teven if you copy past a browser url from one browser to another we check 
 3. Adithya Kethu (akethu):
 <br>1. Points
 
+#### Group Grading Rubric ####
+We are writing the rubric for 100 points in total.
+Design Phase: 30 Points
+    1. Making the wireframes: 10 points
+    2. Making the HTML & CSS based on the wireframes: 15 points
+    3. Planning the Schema for our database: 5 points
+Frontend Phase: 40 Points
+    1.Being able to register and login: 10 points.
+    2. Ability to create, search for groups: 10 points.
+    3. Heroku deployment: 10 points.
+    4. Data is consistant when you log out and log back in: 10 points.
+Backend Phase: 30 points
+    1. Converting from JSON to MongoDB: 15points.
+    2. Notifications being pushed: 5 points.
+    3. Ability to exit a group: 5 points.
+    4. Change name and other information: 5 points
+
 #### Conclusion ####
 The experience of building this application was unique in its own way. We had a good number of ups and downs, for some of the team members it was the first time building a full aplications while for some it was the first web application. We did fill a lot of knowledge gaps on how stuff works in the real world and going from an idea to an application. We did have a huge leraning curve in terms of making design choices and pivoting from one design to another to make the application better. Given more time we defenitly think we can add many more features and grow the application.
 
